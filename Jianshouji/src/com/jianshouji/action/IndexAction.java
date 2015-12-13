@@ -9,5 +9,6 @@ import org.springframework.stereotype.Controller;
 @Controller("indexAction")
 @Namespace("/admin/index")
 public class IndexAction extends AbstractAction {
+	//分支测试
 	
 }
