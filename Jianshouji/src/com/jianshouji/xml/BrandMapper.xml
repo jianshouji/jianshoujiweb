@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hrtek.xdatastudio.core.mapper.ActorMapper" >
+  <resultMap id="BaseResultMap" type="com.jianshouji.model.Brand" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="ACTORNAME" property="actorname" jdbcType="VARCHAR" />
+    <result column="ISSUPER" property="issuper" jdbcType="INTEGER" />
+    <result column="DEPGUID" property="depguid" jdbcType="VARCHAR" />
+    <result column="DEPNAME" property="depname" jdbcType="VARCHAR" />
+    <result column="DELFLAG" property="delflag" jdbcType="INTEGER" />
+    <result column="ORDERNUM" property="ordernum" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,48 @@
+package com.jianshouji.model;
+
+import java.sql.Date;
+
+public class Ceping {
+	private String telphoneguid;//手机guid
+	private String guid;//测评guid
+	private String testaddress;//测评地址
+	private String title;//测评标题
+	private Date testtime;//测评时间
+	public String getTelphoneguid() {
+		return telphoneguid;
+	}
+	public void setTelphoneguid(String telphoneguid) {
+		this.telphoneguid = telphoneguid;
+	}
+	public String getGuid() {
+		return guid;
+	}
+	public void setGuid(String guid) {
+		this.guid = guid;
+	}
+	public String getTestaddress() {
+		return testaddress;
+	}
+	public void setTestaddress(String testaddress) {
+		this.testaddress = testaddress;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public Date getTesttime() {
+		return testtime;
+	}
+	public void setTesttime(Date testtime) {
+		this.testtime = testtime;
+	}
+	public String getTestflag() {
+		return testflag;
+	}
+	public void setTestflag(String testflag) {
+		this.testflag = testflag;
+	}
+	private String testflag;
+}
