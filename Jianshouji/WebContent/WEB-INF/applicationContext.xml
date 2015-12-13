@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns:tx="http://www.springframework.org/schema/tx" 
+ xmlns:aop="http://www.springframework.org/schema/aop"   
+ xsi:schemaLocation=
+ "http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans-4.1.xsd   
+  http://www.springframework.org/schema/tx
+  http://www.springframework.org/schema/tx/spring-tx.xsd   
+  http://www.springframework.org/schema/aop 
+  http://www.springframework.org/schema/aop/spring-aop.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd">
+  <!-- spring注解的写法，需要添加命名空间 
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd"-->
+    <context:annotation-config/>
+	<context:component-scan base-package="com.wb"/>
+
+  <!-- 配置一个数据源 -->
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+  	<!-- 配置连接属性 -->
+  	<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+  	<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/jianshouji"/>
+  	<property name="user" value="root"/>
+  	<property name="password" value="6082253"/>
+  </bean>
+  
+<!-- 定义全局的事务控制 --> 
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
+	<property name ="dataSource" ref="dataSource"/> 
+	</bean> 
+
+<!-- 定义SqlSessionFactory --> 
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
+	<property name="dataSource" ref="dataSource"/> 
+	<property name="mapperLocations" value="classpath*:com/wb/xml/*.xml"/> 
+	<property name="typeAliasesPackage" value="com.mybatis.model"/> 
+	</bean> 
+
+<!-- 自动扫描mapper,允许自动注入(根据类型匹配),不需要逐个配置mapper --> 
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
+	<property name="basePackage" value="com.wb.mapper"/> 
+	</bean>
+	
+</beans>
