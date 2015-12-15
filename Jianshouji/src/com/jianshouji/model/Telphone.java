@@ -24,6 +24,16 @@ public class Telphone {
 	private String Interface;//接口类型
 	private String wifitype;//wifi类型
 	private String blueteeth;//蓝牙
+	private char iscompase;//是否有电子罗盘
+	private char ishallsenser;//是否有霍尔感应
+	private char islightsenser;//是否有光线感应
+	private char isgyroscope;//是否有陀螺仪
+	private char isinfrared;//是否有红外
+	private char isgps;//是否支持gps
+	private char isagps;//是否支持agps
+	private char isgnonass;//是否支持格洛纳斯
+	private char isbeidou;//是否支持北斗
+	private Date pubtime; //手机发布时间
 	public String getGuid() {
 		return guid;
 	}
@@ -210,14 +220,5 @@ public class Telphone {
 	public void setPubtime(Date pubtime) {
 		this.pubtime = pubtime;
 	}
-	private char iscompase;//是否有电子罗盘
-	private char ishallsenser;//是否有霍尔感应
-	private char islightsenser;//是否有光线感应
-	private char isgyroscope;//是否有陀螺仪
-	private char isinfrared;//是否有红外
-	private char isgps;//是否支持gps
-	private char isagps;//是否支持agps
-	private char isgnonass;//是否支持格洛纳斯
-	private char isbeidou;//是否支持北斗
-	private Date pubtime; //手机发布时间
+
 }
