@@ -9,6 +9,7 @@
 	<title>荐手机</title>
  </head>
 <body>
+<%@include file="/jianshouji/common/commonbanner.jsp"%>
 广告页
 </body>
 </html>

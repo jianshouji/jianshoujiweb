@@ -9,21 +9,6 @@
 	<title>荐手机</title>
  </head>
  <style>
- body{
- backgroud-color:#999999;
- margin:0px;
- padding:0px;
- text-align:center;
- }
- .banner{
- background-color:#666;
- }
- #globlelick{
-height:80px;
-float:right;
-margin-top:30px;
-margin-right:40px;
- }
  .content{
 	 background-color:#666;
 	 height:auto;
@@ -60,20 +45,7 @@ border-color:#D2C2B3;
  }
  </style>
  <body>
- 	<div class="banner">
-   	 <div class="top-menu">
-    	<div class="navbar navbar-inverse">
-			<ul class="nav navbar-nav" id="globlelick">
-   			 	<li><a class="active" href="${ctx }/admin/index/toIndex"><h4>主页</h4></a></li>
-    		 	<li><a href=""><h4>品牌</h4></a></li>
-             	<li><a href="${ctx }/admin/cpu/toCpuPage"><h4>处理器</h4></a></li>
-             	<li><a href=""><h4>跑分榜</h4></a></li>
-             	<li><a href=""><h4>最手机</h4></a></li>
-             	<li><a href=""><h4>广告</h4></a></li>
-			</ul>
-        </div>
-       </div>
- 	</div>
+<%@include file="/jianshouji/common/commonbanner.jsp"%>
    <div class="content">
     <div id="recommend-scroll-pic" class="slider">
 		<div id="myCarousel" class="carousel slide">

@@ -5,6 +5,7 @@
 <script type="text/javascript" src="${ctx }/jianshouji/js/bootstrap.min.js"></script>
 <link style="text/css" href="${ctx }/jianshouji/css/bootstrap.min.css" rel="stylesheet"/>
 <link style="text/css" href="${ctx }/jianshouji/css/bootstrap-theme.min.css" rel="stylesheet"/>
+<link style="text/css" href="${ctx }/jianshouji/css/style.css" rel="stylesheet"/>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

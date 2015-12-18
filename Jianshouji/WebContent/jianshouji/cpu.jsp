@@ -9,6 +9,7 @@
 	<title>荐手机</title>
  </head>
 <body>
+<%@include file="/jianshouji/common/commonbanner.jsp"%>
 CPU展示
 </body>
 </html>
