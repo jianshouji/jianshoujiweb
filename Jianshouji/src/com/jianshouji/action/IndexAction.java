@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.apache.struts2.convention.annotation.Result;
 
+import com.jianshouji.model.Pic;
 import com.jianshouji.model.Telphone;
 import com.jianshouji.service.IIndexService;
 
@@ -23,15 +24,15 @@ public class IndexAction extends AbstractAction {
 	@Autowired
 	private IIndexService indexService;
 	private List<Telphone> list;
+	private List<Pic> listpic;
 	
 	private static final long serialVersionUID = 1L;
 
 	//获取首页展示信息
-	@Action(value="getIndexInfo",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
-	public String getIndexInfo(){
-		System.out.println("hello");
-		 list=indexService.listRecommendPic();
-		System.out.println(list.get(0).getBatterytype());
+	@Action(value="toIndex",results={@Result(name=SUCCESS,location="/jianshouji/index.jsp")})
+	public String toIndex(){
+		 list=indexService.listRecommendTelphone();
+		 listpic=indexService.listRecommendPic();
 		return SUCCESS;
 	}
 
@@ -41,5 +42,13 @@ public class IndexAction extends AbstractAction {
 
 	public void setList(List<Telphone> list) {
 		this.list = list;
+	}
+
+	public List<Pic> getListpic() {
+		return listpic;
+	}
+
+	public void setListpic(List<Pic> listpic) {
+		this.listpic = listpic;
 	}
 }

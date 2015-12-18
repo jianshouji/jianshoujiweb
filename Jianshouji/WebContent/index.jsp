@@ -4,9 +4,12 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>首页</title>
 </head>
-<body>
-<jsp:forward page="/jianshouji/test.jsp" /> 
+<body onload="javascript:onload()">
+<script type="text/javascript">
+function onload(){
+	window.location.href='admin/index/toIndex';
+	}
+</script>
 </body>
 </html>

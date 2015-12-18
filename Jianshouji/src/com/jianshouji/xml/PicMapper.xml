@@ -8,4 +8,8 @@
     <result column="PICADDRESS" property="picaddress" jdbcType="VARCHAR" />
     <result column="PICTITLE" property="pictitle" jdbcType="VARCHAR" />
   </resultMap>
+  <select id="selectPicByRecommond" resultMap="BaseResultMap">
+  select p.* from jianshouji.tab_jianshouji_telphone t,jianshouji.tab_jianshouji_pic p
+  where t.guid=p.telphoneguid and t.ISRECOMMEND='1'
+  </select>
 </mapper>

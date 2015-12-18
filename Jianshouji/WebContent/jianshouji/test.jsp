@@ -8,18 +8,18 @@
     <title>首页</title>
 </head>
 <body>
-<div>1111</div>
+222
 <script type="text/javascript">
-$(function(){
-	$.ajax({
-	type:"post",
-	url:"${ctx }/admin/index/getIndexInfo"
-	});
-//	alert('${list }');
-	})
+// $(function(){
+// 	$.ajax({
+// 	type:"post",
+// 	url:"${ctx }/admin/index/getIndexInfo"
+// 	});
+// //	alert('${list }');
+// 	})
 </script>
 <c:forEach items="${list}" var="pic">
-<div>${pic.guid }</div>
+<div>${pic.telphone_name }</div>
 </c:forEach>
 </body>
 </html>
