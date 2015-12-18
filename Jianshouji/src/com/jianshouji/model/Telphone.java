@@ -34,6 +34,7 @@ public class Telphone {
 	private char isgnonass;//是否支持格洛纳斯
 	private char isbeidou;//是否支持北斗
 	private Date pubtime; //手机发布时间
+	private char isrecommend;//是否为推荐
 	public String getGuid() {
 		return guid;
 	}
@@ -219,6 +220,12 @@ public class Telphone {
 	}
 	public void setPubtime(Date pubtime) {
 		this.pubtime = pubtime;
+	}
+	public char getIsrecommend() {
+		return isrecommend;
+	}
+	public void setIsrecommend(char isrecommend) {
+		this.isrecommend = isrecommend;
 	}
 
 }

@@ -31,6 +31,9 @@ margin-right:40px;
  #recommend-left{
 	 width:80%;
  }
+ #tuijian{
+  margin:0 auto;width:20px;line-height:24px;border:1px solid #333
+ }
  .footer{
  }
  </style>
@@ -66,11 +69,10 @@ margin-right:40px;
     </div>
         <div>
         	<div id="recommend-left">
-            	
-            	<div class="row">
-                	 <div class="col-sm-2 col-md-3">
+            	<div id="tuijian">
       					推荐榜
-   					 </div>
+   				</div>
+            	<div class="row">
   					 <div class="col-sm-2 col-md-3">
       					<a href="#" class="thumbnail">
          					<img src="images/letv/le1s-1.jpg" alt="通用的占位符缩略图">

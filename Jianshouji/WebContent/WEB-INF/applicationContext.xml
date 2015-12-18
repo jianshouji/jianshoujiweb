@@ -13,13 +13,9 @@
   http://www.springframework.org/schema/aop/spring-aop.xsd
   http://www.springframework.org/schema/context
   http://www.springframework.org/schema/context/spring-context.xsd">
-  <!-- spring注解的写法，需要添加命名空间 
-   xmlns:context="http://www.springframework.org/schema/context"
-   xsi:schemaLocation="
-   http://www.springframework.org/schema/context
-   http://www.springframework.org/schema/context/spring-context.xsd"-->
+<!-- 自动注解包扫描 -->
     <context:annotation-config/>
-	<context:component-scan base-package="com.wb"/>
+	<context:component-scan base-package="com.jianshouji"/>
 
   <!-- 配置一个数据源 -->
   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -38,13 +34,13 @@
 <!-- 定义SqlSessionFactory --> 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
 	<property name="dataSource" ref="dataSource"/> 
-	<property name="mapperLocations" value="classpath*:com/wb/xml/*.xml"/> 
+	<property name="mapperLocations" value="classpath*:com/jianshouji/xml/*.xml"/> 
 	<property name="typeAliasesPackage" value="com.mybatis.model"/> 
 	</bean> 
 
 <!-- 自动扫描mapper,允许自动注入(根据类型匹配),不需要逐个配置mapper --> 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
-	<property name="basePackage" value="com.wb.mapper"/> 
+	<property name="basePackage" value="com.jianshouji.mapper"/> 
 	</bean>
 	
 </beans>

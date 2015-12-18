@@ -33,5 +33,10 @@
     <result column="ISGNONASS" property="isgnonass" jdbcType="CHAR" />
     <result column="ISBEIDOU" property="isbeidou" jdbcType="CHAR" />
     <result column="PUBTIME" property="pubtime" jdbcType="DATE" />
+    <result column="ISRECOMMEND" property="isrecommend" jdbcType="CHAR" />
   </resultMap>
+  <select id="selectByIsrecommend" resultMap="BaseResultMap" >
+  select * from jianshouji.tab_jianshouji_telphone t
+  where t.isrecommend='1'
+  </select>
 </mapper>
