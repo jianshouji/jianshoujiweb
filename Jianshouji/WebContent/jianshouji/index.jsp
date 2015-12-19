@@ -20,7 +20,7 @@
  .item{
  }
  #recommend-left{
-	 width:80%;
+	 width:100%;
 	 float:left;
 	 position:relative;
  }
@@ -32,14 +32,9 @@
   position:relative;
  }
  .row{
-	 width:70%;
+	 width:90%;
  	 float:left;
  	 position:relative;
- }
- #recommend-right{
- width:20%;
- float:left;
-border-color:#D2C2B3;
  }
  .footer{
  }
@@ -71,24 +66,35 @@ border-color:#D2C2B3;
       					推荐榜
    				</div>
             	<div class="row">
-            		<c:forEach items="${listpic}" var="pic">
+<%--             		<c:forEach items="${listpic}" var="pic">
             			<div class="col-sm-2 col-md-3">
             					<a href="#" class="thumbnail">
          						<img src="${ctx }/${pic.picaddress }" alt="通用的占位符缩略图">
      					 		</a>
      					</div>
-            		</c:forEach>
+            		</c:forEach> --%>
+            		<c:forEach items="${listpic}" var="pic">
+            		     <div class="col-sm-6 col-md-4 col-lg-3 ">
+          					<div class="thumbnail">
+            				<a href="${ctx }/admin/telphone/toPhonePage?guid=${pic.telphoneguid}" title="jQuery API 中文文档/手册" target="_blank" onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'jQueryAPI中文手册'])"><img class="lazy" src="${ctx }/${pic.picaddress }" width="400" height="150" data-src="http://static.bootcss.com/www/assets/img/jqueryapi.png" alt="jQuery API 中文文档/手册"></a>
+            					<div class="caption">
+              						<h3> 
+                					<a href="###" title="jQuery API 中文文档/手册" target="_blank" onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'jQueryAPI中文手册'])">${pic.pictitle } <br><small>中文手册</small></a>
+              						</h3>
+              						<p>
+              						${pic.pictitle }
+              						</p>
+            					</div>
+          					</div>
+        				</div>
+        			</c:forEach>
 				</div>
             
             </div>
-            <div id="recommend-right">
-            11111
-            </div>
+
         </div>
     </div>
-    <div class="footer">
-    </div>
-    
+<%@include file="/jianshouji/common/footer.jsp"%>
     <script>
     $(function(){
 		
