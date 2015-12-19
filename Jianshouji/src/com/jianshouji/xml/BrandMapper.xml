@@ -9,4 +9,9 @@
     <result column="BRANDADDRESS" property="brandaddress" jdbcType="VARCHAR" />
     <result column="logoaddress" property="logoaddress" jdbcType="VARCHAR" />
   </resultMap>
+	<!-- 查找明星品牌,暂时没有字段区分是否为明星品牌，有待修改 -->
+	<select id="selectStarBrand" resultMap="BaseResultMap">
+		select * from jianshouji.tab_jianshouji_brand 
+		where 1=1
+	</select>
 </mapper>
