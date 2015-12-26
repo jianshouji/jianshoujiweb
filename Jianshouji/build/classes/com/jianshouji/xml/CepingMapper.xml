@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jianshouji.mapper.CepingMapper" >
+  <resultMap id="BaseResultMap" type="com.jianshouji.model.Ceping" >
+    <id column="TELPHONEGUID" property="telphoneguid" jdbcType="VARCHAR" />
+    <result column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="TESTADDRESS" property="testaddress" jdbcType="INTEGER" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="TESTFLAG" property="testtime" jdbcType="DATE" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,15 @@
+ body{
+ backgroud-color:#999999;
+ margin:0px;
+ padding:0px;
+ text-align:center;
+ }
+ .banner{
+ background-color:#666;
+ }
+ #globlelink{
+height:80px;
+float:right;
+margin-top:30px;
+margin-right:40px;
+ }

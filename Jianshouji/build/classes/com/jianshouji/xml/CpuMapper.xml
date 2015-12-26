@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jianshouji.mapper.CpuMapper" >
+  <resultMap id="BaseResultMap" type="com.jianshouji.model.Cpu" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="CPU_CODE" property="cpu_code" jdbcType="VARCHAR" />
+    <result column="CPU_NAME" property="cpu_name" jdbcType="VARCHAR" />
+    <result column="CPU_NUM" property="cpu_num" jdbcType="INTEGER" />
+    <result column="CPU_CORE" property="cpu_core" jdbcType="VARCHAR" />
+    <result column="CPU_GPU" property="cpu_gpu" jdbcType="VARCHAR" />
+    <result column="CPU_SCORE" property="cpu_score" jdbcType="INTEGER" />
+    <result column="CPU_PUBTIME" property="cpu_pubtime" jdbcType="DATE" />
+    <result column="CPU_PUBINS" property="cpu_pubins" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

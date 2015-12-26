@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jianshouji.mapper.PicMapper" >
+  <resultMap id="BaseResultMap" type="com.jianshouji.model.Pic" >
+    <id column="TELPHONEGUID" property="telphoneguid" jdbcType="VARCHAR" />
+    <result column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="PICNAME" property="picname" jdbcType="VARCHAR" />
+    <result column="PICADDRESS" property="picaddress" jdbcType="VARCHAR" />
+    <result column="PICTITLE" property="pictitle" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectPicByRecommond" resultMap="BaseResultMap">
+  select p.* from jianshouji.tab_jianshouji_telphone t,jianshouji.tab_jianshouji_pic p
+  where t.guid=p.telphoneguid and t.ISRECOMMEND='1'
+  </select>
+</mapper>
