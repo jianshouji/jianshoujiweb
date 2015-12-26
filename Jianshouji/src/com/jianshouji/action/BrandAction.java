@@ -41,7 +41,7 @@ public class BrandAction extends AbstractAction {
 	}
 
 
-	//获取品牌页信息
+	//获取品牌页信息 测试2015-12-26
 	@Action(value="toBrandPage",results={@Result(name=SUCCESS,location="/jianshouji/brand.jsp")})
 	public String toBrandPage(){
 		list=brandService.getStarBrand();
