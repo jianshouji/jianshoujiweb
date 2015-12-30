@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jianshouji.mapper.TelphoneTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.jianshouji.model.TelphoneType" >
+    <id column="TELPHONEGUID" property="telphoneguid" jdbcType="VARCHAR" />
+    <result column="PGUID" property="pguid" jdbcType="VARCHAR" />
+  </resultMap>
+<select id="selectChildrenByPguid" parameterType="java.lang.String" resultMap="BaseResultMap">
+	select TELPHONEGUID from tab_jianshouji_telphonetype where PGUID=#{pguid,jdbcType=VARCHAR}
+</select>
+<select id="selectAllBrand"  resultMap="BaseResultMap">
+	select BRANDNAME,TELPHONEGUID from tab_jianshouji_brand as b,tab_jianshouji_telphonetype as t where b.guid=t.pguid
+</select>
+</mapper>

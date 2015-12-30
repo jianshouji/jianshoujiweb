@@ -11,4 +11,7 @@
     <result column="FALSHLIGHT" property="flashlight" jdbcType="VARCHAR" />
     <result column="OTHER" property="other" jdbcType="VARCHAR" />
   </resultMap>
+  <select id="getCameraCombobox" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select GUID,CAMERATYPE from tab_jianshouji_camera
+  </select>
 </mapper>

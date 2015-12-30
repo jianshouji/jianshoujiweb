@@ -7,5 +7,5 @@ import com.jianshouji.model.Brand;
 
 public interface BrandMapper extends AbstractEntityMapper<Brand> {
 	List<Brand> selectStarBrand();
-
+	List<Brand> selectAllBrand();
 }

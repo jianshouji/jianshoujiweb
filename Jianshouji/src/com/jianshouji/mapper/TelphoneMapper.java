@@ -10,4 +10,9 @@ import com.jianshouji.model.Telphone;
 
 public interface TelphoneMapper extends AbstractEntityMapper<Telphone> {
 	 List<Telphone> selectByIsrecommend();
+	 //插入手机参数
+	 int insert(Telphone record);
+	 
+	 //根据手机品牌选择手机
+	 List<Telphone> selectTelphoneByBrand(String brandguid);
 }

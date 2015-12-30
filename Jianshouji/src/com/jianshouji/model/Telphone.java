@@ -21,7 +21,7 @@ public class Telphone {
 	private String fingerprint;//是否支持指纹
 	private String sim;//sim卡类型
 	private char isgyro; //是否有陀螺仪
-	private String Interface;//接口类型
+	private String interfacetype;//接口类型
 	private String wifitype;//wifi类型
 	private String blueteeth;//蓝牙
 	private char iscompase;//是否有电子罗盘
@@ -83,9 +83,16 @@ public class Telphone {
 	public void setCameryguid(String cameryguid) {
 		this.cameryguid = cameryguid;
 	}
+	public String getInterfacetype() {
+		return interfacetype;
+	}
+	public void setInterfacetype(String interfacetype) {
+		this.interfacetype = interfacetype;
+	}
 	public Integer getRamvol() {
 		return ramvol;
 	}
+
 	public void setRamvol(Integer ramvol) {
 		this.ramvol = ramvol;
 	}
@@ -143,12 +150,7 @@ public class Telphone {
 	public void setIsgyro(char isgyro) {
 		this.isgyro = isgyro;
 	}
-	public String getInterface() {
-		return Interface;
-	}
-	public void setInterface(String interface1) {
-		Interface = interface1;
-	}
+
 	public String getWifitype() {
 		return wifitype;
 	}

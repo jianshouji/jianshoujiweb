@@ -20,7 +20,7 @@
     <result column="FINGERPRINT" property="fingerprint" jdbcType="VARCHAR" />
     <result column="SIM" property="sim" jdbcType="VARCHAR" />
     <result column="GYRO" property="isgyro" jdbcType="CHAR" />
-    <result column="INTERFACE" property="Interface" jdbcType="VARCHAR" />
+    <result column="INTERFACE" property="interfacetype" jdbcType="VARCHAR" />
     <result column="WIFITYPE" property="wifitype" jdbcType="VARCHAR" />
     <result column="BLUETEETH" property="blueteeth" jdbcType="VARCHAR" />
     <result column="ISCOMPASE" property="iscompase" jdbcType="CHAR" />
@@ -38,5 +38,33 @@
   <select id="selectByIsrecommend" resultMap="BaseResultMap" >
   select * from jianshouji.tab_jianshouji_telphone t
   where t.isrecommend='1'
+  </select>
+  <insert id="insert" parameterType="com.jianshouji.model.Telphone">
+  insert into jianshouji.tab_jianshouji_telphone(GUID,TELPHONE_NAME,
+  PRICE,BRANDGUID,CPUGUID,SCREENGUID,
+  BEFOREPIXEL,CAMERYGUID,RAMVOL,
+  RAMTYPE,ROMVOL,OPRATION,
+  COLOR,BATTERY,BATTERYTYPE,
+  FINGERPRINT,SIM,GYRO,
+  INTERFACE,WIFITYPE,BLUETEETH,
+  ISCOMPASE,ISHALLSENSER,ISLIGHTSENSER,
+  ISGYROSCOPE,ISINFRARED,ISGPS,
+  ISAGPS,ISGNONASS,ISBEIDOU,
+  PUBTIME,ISRECOMMEND)
+  values(#{guid,jdbcType=VARCHAR},#{telphone_name,jdbcType=VARCHAR},#{price,jdbcType=INTEGER},
+  #{brandguid,jdbcType=VARCHAR},#{cpuguid,jdbcType=VARCHAR},#{screenguid,jdbcType=VARCHAR},
+  #{beforepixel,jdbcType=VARCHAR},#{cameryguid,jdbcType=VARCHAR},#{ramvol,jdbcType=INTEGER},
+  #{ramtype,jdbcType=VARCHAR},#{romvol,jdbcType=INTEGER},#{opration,jdbcType=VARCHAR},
+  #{color,jdbcType=VARCHAR},#{battery,jdbcType=VARCHAR},#{batterytype,jdbcType=VARCHAR},
+  #{fingerprint,jdbcType=VARCHAR},#{sim,jdbcType=VARCHAR},#{isgyro,jdbcType=CHAR},
+  #{interfacetype,jdbcType=VARCHAR},#{wifitype,jdbcType=VARCHAR},#{blueteeth,jdbcType=VARCHAR},
+  #{iscompase,jdbcType=CHAR},#{ishallsenser,jdbcType=CHAR},#{islightsenser,jdbcType=CHAR},
+  #{isgyroscope,jdbcType=CHAR},#{isinfrared,jdbcType=CHAR},#{isgps,jdbcType=CHAR},
+  #{isagps,jdbcType=CHAR},#{isgnonass,jdbcType=CHAR},#{isbeidou,jdbcType=CHAR},
+  #{pubtime,jdbcType=DATE},#{isrecommend,jdbcType=CHAR})
+  </insert>
+    <select id="selectTelphoneByBrand" resultMap="BaseResultMap" >
+  select * from jianshouji.tab_jianshouji_telphone t
+  where BRANDGUID=#{brandguid,jdbcType=VARCHAR}
   </select>
 </mapper>

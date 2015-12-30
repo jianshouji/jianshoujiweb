@@ -9,4 +9,7 @@
     <result column="DISTINGUISH" property="distinguish" jdbcType="VARCHAR" />
     <result column="PPI" property="ppi" jdbcType="VARCHAR" />
   </resultMap>
+  <select id="getScreenCombobox" parameterType="java.lang.String" resultMap="BaseResultMap">
+  select GUID,TEXTURE from tab_jianshouji_screen
+  </select>
 </mapper>

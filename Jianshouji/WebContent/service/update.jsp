@@ -37,13 +37,13 @@
   			<tr>
   				<td align="right">处理器GUID</td>
   				<td>
-  					<input class="easyui-combobox" style="width:200px;" name="telphone.cpuguid" data-options="valueField:'guid',textField:'cpu_name',url:'${ctx }/admin/service/getCpucombobox'" value="${telphone.cpuguid }"> 
+  					<input type="text" id="cc" name="dept" value="aa" style="width:200px;" name="telphone.cpuguid" value="${telphone.cpuguid }"> 
   				</td>
   			</tr>
   			<tr>
   				<td align="right">屏幕GUID</td>
   				<td>
-  					<input class="easyui-combobox" style="width:200px;" name="telphone.screenguid" data-options="valueField:'guid',textField:'texture',url:'${ctx }/admin/service/getScreenCombobox'" style="width:200px;" value="${telphone.screenguid }"> 
+  					<input type="text" id="cc" name="dept" value="aa" style="width:200px;" name="telphone.screenguid" value="${telphone.screenguid }"> 
   				</td>
   			</tr>
   			<tr>
@@ -55,7 +55,7 @@
   			<tr>
   				<td align="right">后置摄像头GUID</td>
   				<td>
-  					<input class="easyui-combobox" data-options="valueField:'guid',textField:'cameratype',url:'${ctx }/admin/service/getCameraCombobox'" style="width:200px;" name="telphone.cameryguid" value="${telphone.cameryguid }">
+  					<input type="text" id="cc" name="dept" value="aa" style="width:200px;" name="telphone.cameryguid" value="${telphone.cameryguid }">
   				</td>
   			</tr>
   			<tr>
@@ -82,7 +82,7 @@
   			<tr>
   				<td align="right">操作系统</td>
   				<td>
-  					<select class="easyui-combobox deflag" name="telphone.opration" value="${telphone.opration }" style="width:200px;">   
+  					<select class="easyui-combobox deflag" name="telphone.opration"  style="width:200px;">   
     				<option value="1">MIUI</option>   
     				<option value="0">EMUI</option>
     				<option value="1">FLYME</option>   
@@ -144,7 +144,7 @@
   			<tr>
   				<td align="right">WIFITYPE</td>
   				<td>
-  					<input type="text" align="right" value="" style="width:200px;" name="telphone.wifitype" value="802.11 a/b/g/n/ac 无线网络，支持 2.4GHz 和 5GHz 频 ">
+  					<input type="text" align="right" value="" style="width:200px;" name="telphone.wifitype" value="${telphone.wifitype }">
   				</td>
   			</tr>
   			<tr>

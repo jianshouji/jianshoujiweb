@@ -1,10 +1,9 @@
-package com.jianshouji.mapper;
+package com.jianshouji.service;
 
 import java.util.List;
 
 import com.jianshouji.model.Screen;
 
-
-public interface ScreenMapper extends AbstractEntityMapper<Screen> {
+public interface IScreenService {
 	List<Screen> getScreenCombobox();
 }

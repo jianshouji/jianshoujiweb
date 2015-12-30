@@ -12,4 +12,7 @@
     <result column="CPU_PUBTIME" property="cpu_pubtime" jdbcType="DATE" />
     <result column="CPU_PUBINS" property="cpu_pubins" jdbcType="VARCHAR" />
   </resultMap>
+  <select id="getCpucombobox" parameterType="java.lang.String" resultMap="BaseResultMap">
+  select GUID,CPU_NAME from tab_jianshouji_cpu
+  </select>
 </mapper>
