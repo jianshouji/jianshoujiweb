@@ -8,6 +8,7 @@ public class Ceping {
 	private String testaddress;//测评地址
 	private String title;//测评标题
 	private Date testtime;//测评时间
+	private char testflag;//是否为精
 	public String getTelphoneguid() {
 		return telphoneguid;
 	}
@@ -38,11 +39,12 @@ public class Ceping {
 	public void setTesttime(Date testtime) {
 		this.testtime = testtime;
 	}
-	public String getTestflag() {
+	public char getTestflag() {
 		return testflag;
 	}
-	public void setTestflag(String testflag) {
+	public void setTestflag(char testflag) {
 		this.testflag = testflag;
 	}
-	private String testflag;
+
+	
 }

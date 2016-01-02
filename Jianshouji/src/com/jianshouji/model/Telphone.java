@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Telphone {
 	private String guid;//手机主键
+	private Integer number;
 	private String telphone_name;//手机名称
 	private Integer price;//手机价格
 	private String brandguid;//品牌guid
@@ -35,6 +36,12 @@ public class Telphone {
 	private char isbeidou;//是否支持北斗
 	private Date pubtime; //手机发布时间
 	private char isrecommend;//是否为推荐
+	
+	//附加
+	private String cpuname;
+	private String screenname;
+	private String cameranme;
+	private String pubtimestr;
 	public String getGuid() {
 		return guid;
 	}
@@ -228,6 +235,36 @@ public class Telphone {
 	}
 	public void setIsrecommend(char isrecommend) {
 		this.isrecommend = isrecommend;
+	}
+	public String getCpuname() {
+		return cpuname;
+	}
+	public void setCpuname(String cpuname) {
+		this.cpuname = cpuname;
+	}
+	public String getScreenname() {
+		return screenname;
+	}
+	public void setScreenname(String screenname) {
+		this.screenname = screenname;
+	}
+	public String getCameranme() {
+		return cameranme;
+	}
+	public void setCameranme(String cameranme) {
+		this.cameranme = cameranme;
+	}
+	public String getPubtimestr() {
+		return pubtimestr;
+	}
+	public void setPubtimestr(String pubtimestr) {
+		this.pubtimestr = pubtimestr;
+	}
+	public Integer getNumber() {
+		return number;
+	}
+	public void setNumber(Integer number) {
+		this.number = number;
 	}
 
 }

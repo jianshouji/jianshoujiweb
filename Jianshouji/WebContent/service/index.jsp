@@ -37,14 +37,15 @@
 		    		}],
 		    	    url:'${ctx }/admin/service/telphoneList?brandguid='+row.telphoneguid,    
 		    	    columns:[[    
+						{field:'number',title:'手机编号',width:100,align:'left',hidden:true},
 		    	        {field:'telphone_name',title:'手机名',width:100,align:'left'},    
 		    	        {field:'price',title:'价格',width:100,align:'left'},    
-		    	        {field:'cpuguid',title:'处理器GUID',width:100,align:'left'} ,
-		    	        {field:'screenguid',title:'屏幕GUID',width:100,align:'left'},  
+		    	        {field:'cpuname',title:'处理器',width:100,align:'left'} ,
+		    	        {field:'screenname',title:'屏幕',width:150,align:'left'},  
 		    	        {field:'beforepixel',title:'前置摄像头',width:100,align:'left'},  
-		    	        {field:'cameryguid',title:'后置摄像头',width:100,align:'left'},
-		    	        {field:'ramvol',title:'RAM大小',width:100,align:'left'},
-		    	        {field:'romvol',title:'ROM大小',width:100,align:'left'},
+		    	        {field:'cameranme',title:'后置摄像头',width:100,align:'left'},
+		    	        {field:'ramvol',title:'RAM大小（单位G）',width:150,align:'left'},
+		    	        {field:'romvol',title:'ROM大小（单位G）',width:150,align:'left'},
 		    	        {field:'opration',title:'操作系统',width:100,align:'left'},
 		    	        {field:'battery',title:'电池容量',width:100,align:'left'},
 		    	        {field:'batterytype',title:'电池类型',width:100,align:'left'},
@@ -63,55 +64,81 @@
 		    	        {field:'isagps',title:'是否AGPS',width:100,align:'left'},
 		    	        {field:'isgnonass',title:'是否GNONASS',width:100,align:'left'},
 		    	        {field:'isbeidou',title:'是否北斗定位',width:100,align:'left'},
-		    	        {field:'pubtime',title:'发布时间',width:100,align:'left'},
+		    	        {field:'pubtimestr',title:'发布时间',width:100,align:'left'},
 		    	        {field:'isrecommend',title:'是否为推荐',width:100,align:'left'}
 		    	    ]] ,
 		    	    onSelect:function(){
-		    	    	$('#test').datagrid({
-		    	    		singleSelect:true,
-		    	    		title:"测评信息",
-		    	    		toolbar: [{
-				    			iconCls: 'icon-add',
-				    			handler: function(){addtest();}
-				    		},'-',{
-				    			iconCls: 'icon-edit',
-				    			handler: function(){edittest();}
-				    		},'-',{
-				    			iconCls: 'icon-remove',
-				    			handler: function(){removetest();}
-				    		}],
-		    	    		url:'${ctx }/service/datagrid_data1.json',
-		    	    		columns:[[   
-										{field:'unitcost',title:'测评GUID',align:'left',hidden:true},
-		    			    	        {field:'title',title:'测评标题',width:100,align:'left'},    
-		    			    	        {field:'productid',title:'测评地址',width:315,align:'left'},    
-		    			    	        {field:'listprice',title:'测评时间',width:146,align:'left'} 
-		    			    	        
-		    			    	    ]]
-		    	    	});
-		    	    	$('#pic').datagrid({
-		    	    		title:"图片信息",
-		    	    		singleSelect:true,
-		    	    		toolbar: [{
-				    			iconCls: 'icon-add',
-				    			handler: function(){addpic();}
-				    		},'-',{
-				    			iconCls: 'icon-edit',
-				    			handler: function(){editpic();}
-				    		},'-',{
-				    			iconCls: 'icon-remove',
-				    			handler: function(){removepic();}
-				    		}],
-		    	    		url:'${ctx }/service/datagrid_data1.json',
-		    	    		columns:[[    
-		    			    	        {field:'itemid',title:'图片guid',width:100,align:'left',hidden:true},    
-		    			    	        {field:'productid',title:'图片标题',width:150,align:'left'},    
-		    			    	        {field:'listprice',title:'图片名称',width:173,align:'left'} ,
-		    			    	        {field:'unitcost',title:'图片地址',width:220,align:'left'}
-		    			    	    ]]
-		    	    	});
+
 		    	    }
 		    	});
+    	    	$('#test').datagrid({
+    	    		fit:true,
+    	    		singleSelect:true,
+    	    		title:"测评信息",
+    	    		toolbar: [{
+		    			iconCls: 'icon-add',
+		    			handler: function(){addtest();}
+		    		},'-',{
+		    			iconCls: 'icon-edit',
+		    			handler: function(){edittest();}
+		    		},'-',{
+		    			iconCls: 'icon-remove',
+		    			handler: function(){removetest();}
+		    		}],
+    	    		url:'${ctx }/admin/service/cepingList?brandguid='+row.telphoneguid,
+    	    		columns:[[   
+								{field:'guid',title:'测评GUID',align:'left',hidden:true},
+    			    	        {field:'title',title:'测评标题',width:100,align:'left'},    
+    			    	        {field:'testaddress',title:'测评地址',width:315,align:'left'},    
+    			    	        {field:'testtime',title:'测评时间',width:146,align:'left'} ,
+    			    	        {field:'testflag',title:'是否为精',width:146,align:'left'} 
+    			    	        
+    			    	    ]]
+    	    	});
+    	    	$('#pic').datagrid({
+    	    		title:"图片信息",
+    	    		fit:true,
+    	    		singleSelect:true,
+    	    		toolbar: [{
+		    			iconCls: 'icon-add',
+		    			handler: function(){addpic();}
+		    		},'-',{
+		    			iconCls: 'icon-edit',
+		    			handler: function(){editpic();}
+		    		},'-',{
+		    			iconCls: 'icon-remove',
+		    			handler: function(){removepic();}
+		    		}],
+    	    		url:'${ctx }/admin/service/picList',
+    	    		columns:[[    
+    			    	        {field:'itemid',title:'图片guid',width:100,align:'left',hidden:true},    
+    			    	        {field:'productid',title:'图片标题',width:150,align:'left'},    
+    			    	        {field:'listprice',title:'图片名称',width:170,align:'left'} ,
+    			    	        {field:'unitcost',title:'图片地址',width:220,align:'left'}
+    			    	    ]]
+    	    	});
+    	    	$('#sell').datagrid({
+    	    		title:"销售信息",
+    	    		fit:true,
+    	    		singleSelect:true,
+    	    		toolbar: [{
+		    			iconCls: 'icon-add',
+		    			handler: function(){addsell();}
+		    		},'-',{
+		    			iconCls: 'icon-edit',
+		    			handler: function(){editsell();}
+		    		},'-',{
+		    			iconCls: 'icon-remove',
+		    			handler: function(){removesell();}
+		    		}],
+    	    		url:'${ctx }/admin/service/cepingList?telphoneguid='+row.telphoneguid,
+    	    		columns:[[    
+    			    	        {field:'itemid',title:'图片guid',width:100,align:'left',hidden:true},    
+    			    	        {field:'productid',title:'官网地址',width:300,align:'left'},    
+    			    	        {field:'listprice',title:'天猫地址',width:300,align:'left'} ,
+    			    	        {field:'unitcost',title:'京东地址',width:300,align:'left'}
+    			    	    ]]
+    	    	});
 		    }
 		}); 
  })
@@ -132,7 +159,96 @@
  
 function addtelphone(){
 var row=$('#brandtree').datagrid('getSelected');
-var win=showWindow("手机信息添加", '${ctx }/admin/service/toPhoneAddPage?brandguid='+row.telphoneguid, 400,500,true, null, null);
+if(row){
+	var win=showWindow("手机信息添加", '${ctx }/admin/service/toPhoneAddPage?brandguid='+row.telphoneguid, 400,500,true, null, null);
+}
+}
+function edittelphone(){
+	var row=$('#telphone').datagrid('getSelected');
+	if(row){
+		var win=showWindow("手机信息编辑", '${ctx }/admin/service/toPhoneEditPage?number='+row.number, 400,500,true, null, null);
+	}
+
+}
+function removetelphone(){
+	var row=$('#telphone').datagrid('getSelected');
+	$.ajax({
+		url:'${ctx }/admin/service/phoneRemove?number='+row.number,
+		success: function(msg){
+			$('#telphone').datagrid('reload');
+		   }
+
+		
+	})
+}
+function addtest(){
+	var row=$('#brandtree').datagrid('getSelected');
+	if(row){
+		var win=showWindow("测评添加", '${ctx }/admin/service/toCepingAddPage?brandguid='+row.telphoneguid, 400,500,true, null, null);
+	}
+}
+function edittest(){
+	var row=$('#test').datagrid('getSelected');
+	if(row){
+		var win=showWindow("测评编辑", '${ctx }/admin/service/toCepingEditPage?guid='+row.guid, 400,500,true, null, null);
+	}
+}
+function removetest(){
+	var row=$('#test').datagrid('getSelected');
+	$.ajax({
+		url:'${ctx }/admin/service/cepingRemove?guid='+row.guid,
+		success: function(msg){
+			$('#test').datagrid('reload');
+		   }
+
+		
+	})
+}
+
+function addpic(){
+	var row=$('#brandtree').datagrid('getSelected');
+	if(row){
+		var win=showWindow("测评添加", '${ctx }/admin/service/toPicAddPage?brandguid='+row.telphoneguid, 400,500,true, null, null);
+	}
+}
+
+function editpic(){
+	var row=$('#pic').datagrid('getSelected');
+	if(row){
+		var win=showWindow("测评编辑", '${ctx }/admin/service/toPicEditPage?guid='+row.guid, 400,500,true, null, null);
+	}
+}
+
+function removepic(){
+	var row=$('#pic').datagrid('getSelected');
+	$.ajax({
+		url:'${ctx }/admin/service/picRemove?guid='+row.guid,
+		success: function(msg){
+			$('#pic').datagrid('reload');
+		   }
+
+		
+	})
+}
+
+function addsell(){
+	
+}
+
+function editsell(){
+	
+}
+
+function removesell(){
+	var row=$('#sell').datagrid('getSelected');
+	$.ajax({
+		url:'${ctx }/admin/service/cepingRemove?guid='+row.guid,
+		success: function(msg){
+			$('#sell').datagrid('reload');
+		   }
+
+		
+	})
 }
 function showWindow(title, href, width, height, modal, minimizable, maximizable) {
 	      var openWin = window.top.$('<div id="myWinId" class="easyui-window" closed="true"></div>').appendTo(window.top.document.body);
@@ -171,11 +287,14 @@ function showWindow(title, href, width, height, modal, minimizable, maximizable)
     		<table id="telphone"></table> 
     	</div>
     	<div data-options="region:'south'" style="height:100px;">
-    		<div data-options="region:'center'" style="width:50%;float:left">
+    		<div data-options="region:'center'" style="width:61%;height:200px;float:left">
     			<table id="test"></table> 
     		</div>
-    		<div data-options="region:'east'" style="width:50%;float:left">
+    		<div data-options="region:'east'" style="width:39%;height:200px;float:left">
     			<table id="pic"></table>
+    		</div>
+    		<div data-options="region:'south'" style="width:100%;float:left">
+    			<table id="sell"></table>
     		</div>
     	</div> 
     </div>   

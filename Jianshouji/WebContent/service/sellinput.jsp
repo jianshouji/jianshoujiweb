@@ -6,33 +6,32 @@
 <html>
  <head >
  	<jsp:include page="/service/common/header.jsp"></jsp:include>
-	<title>图片添加页面</title>
+	<title>销售信息添加页面</title>
  </head>
  <body >
-    	<form id="picmsg" action="${ctx }/admin/service/phoneInsert" method="post">
+    	<form id="sellmsg" action="${ctx }/admin/service/phoneInsert" method="post">
   		<table>
   			<thead>
   				<th align="right">属性</th>
   				<th>值</th>
   			</thead>
   			<tr>
-  				<td align="right">图片名称</td>
+  				<td align="right">官网销售地址</td>
   				<td>
-  					<input type="text" style="width:200px;" name="pic.picname" value="${pic.picname }">
-  					<input type="text" style="width:200px;" name="pic.guid" value="${pic.guid }" hidden="true" />
-  					<input type="text" style="width:200px;" name="pic.telphoneguid" value="${pic.telphoneguid }" hidden="true">
+  					<input type="text" style="width:200px;" name="sell.industryaddress" >
+  					<input type="text" style="width:200px;" name="sell.guid" value="${sell.guid }" hidden="true" />
   				</td>
   			</tr>
   			<tr>
-  				<td align="right">图片地址</td>
+  				<td align="right">京东商城地址</td>
   				<td>
-  					<input type="text" style="width:200px;" name="pic.picaddress" value="${pic.picaddress" }">
+  					<input type="text" style="width:200px;" name="sell.jdaddress" value="${sell.jdaddress" }">
   				</td>
   			</tr>
   			<tr>
-  				<td align="right">图片标题</td>
+  				<td align="right">天猫商城销售地址</td>
   				<td>
-  					<input type="text"  class="easyui-datebox" style="width:200px;" name="pic.pictitle"  value="${pic.pictitle }">
+  					<input type="text"  style="width:200px;" name="sell.tmalladdress" >
   				</td>
   			</tr>
   		</table>

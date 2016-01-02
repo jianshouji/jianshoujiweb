@@ -46,6 +46,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-convention-plugin-2.3.16.3.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-core-2.3.16.3.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-spring-plugin-2.3.16.3.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xwork-core-2.3.16.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xwork-core-2.3.16.3.jar" sourcepath="C:/Users/HelloBingo/.m2/repository/org/apache/struts/xwork/xwork-core/2.3.16.3/xwork-core-2.3.16.3-sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

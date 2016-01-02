@@ -18,7 +18,7 @@
   			<tr>
   				<td align="right">测评标题</td>
   				<td>
-  					<input type="text" style="width:200px;" name="ceping.title" >
+  					<input type="text" style="width:200px;" name="ceping.title" value="${ceping.title }">
   					<input type="text" style="width:200px;" name="ceping.guid" value="${ceping.guid }" hidden="true" />
   					<input type="text" style="width:200px;" name="ceping.telphoneguid" value="${ceping.telphoneguid }" hidden="true">
   				</td>
@@ -32,13 +32,13 @@
   			<tr>
   				<td align="right">测评时间</td>
   				<td>
-  					<input type="text"  class="easyui-datebox" style="width:200px;" name="ceping.testtime" >
+  					<input type="text"  class="easyui-datebox" style="width:200px;" name="ceping.testtime"  value="${ceping.testtime }">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">是否为精</td>
   				<td>
-  					<input type="text" style="width:200px;" name="ceping.testflag" > 
+  					<input type="text" style="width:200px;" name="ceping.testflag"  value="${ceping.testflag }"> 
   				</td>
   			</tr>
   		</table>

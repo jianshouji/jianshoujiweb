@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jianshouji.mapper.TelphoneMapper" >
   <resultMap id="BaseResultMap" type="com.jianshouji.model.Telphone" >
-    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <id column="NUMBER" property="number" jdbcType="INTEGER" />
+    <result column="GUID" property="guid" jdbcType="VARCHAR" />
     <result column="TELPHONE_NAME" property="telphone_name" jdbcType="VARCHAR" />
     <result column="PRICE" property="price" jdbcType="INTEGER" />
     <result column="BRANDGUID" property="brandguid" jdbcType="VARCHAR" />
@@ -39,6 +40,9 @@
   select * from jianshouji.tab_jianshouji_telphone t
   where t.isrecommend='1'
   </select>
+  <select id="selectTelphoneByNumber"  parameterType="java.lang.Integer"  resultMap="BaseResultMap">
+  select * from tab_jianshouji_telphone where NUMBER=#{number,jdbcType=INTEGER}
+  </select>
   <insert id="insert" parameterType="com.jianshouji.model.Telphone">
   insert into jianshouji.tab_jianshouji_telphone(GUID,TELPHONE_NAME,
   PRICE,BRANDGUID,CPUGUID,SCREENGUID,
@@ -64,7 +68,57 @@
   #{pubtime,jdbcType=DATE},#{isrecommend,jdbcType=CHAR})
   </insert>
     <select id="selectTelphoneByBrand" resultMap="BaseResultMap" >
-  select * from jianshouji.tab_jianshouji_telphone t
-  where BRANDGUID=#{brandguid,jdbcType=VARCHAR}
+  select t.NUMBER,t.GUID, t.TELPHONE_NAME,t.PRICE,c.CPU_NAME as cpuname,
+  		 s.TEXTURE as screenname,t.BEFOREPIXEL,a.CAMERATYPE as cameranme,
+  		 t.RAMVOL,t.ROMVOL,t.OPRATION,t.BATTERY,t.BATTERYTYPE,
+  		 t.FINGERPRINT,t.SIM,t.GYRO,t.INTERFACE,t.WIFITYPE,t.BLUETEETH,
+  		 t.ISCOMPASE,t.ISHALLSENSER,t.ISLIGHTSENSER,t.ISGYROSCOPE,
+  		 t.ISINFRARED,t.ISGPS,t.ISAGPS,t.ISGNONASS,t.ISBEIDOU,
+  		 date_format(t.PUBTIME,'%Y-%m-%d') PUBTIMESTR,t.ISRECOMMEND
+  from jianshouji.tab_jianshouji_telphone t,tab_jianshouji_cpu c,tab_jianshouji_screen s,
+  tab_jianshouji_camera a
+  where c.guid=t.cpuguid and 
+  s.guid=t.screenguid and 
+  a.guid=t.cameryguid and
+  t.BRANDGUID=#{brandguid,jdbcType=VARCHAR} 
   </select>
+  <update id="update" parameterType="com.jianshouji.model.Telphone">
+  update  jianshouji.tab_jianshouji_telphone
+  set GUID=#{guid,jdbcType=VARCHAR},
+  		TELPHONE_NAME=#{telphone_name,jdbcType=VARCHAR},
+  		PRICE=#{price,jdbcType=INTEGER},
+  		BRANDGUID=#{brandguid,jdbcType=VARCHAR},
+  		CPUGUID=#{cpuguid,jdbcType=VARCHAR},
+  		SCREENGUID=#{screenguid,jdbcType=VARCHAR},
+  		BEFOREPIXEL=#{beforepixel,jdbcType=VARCHAR},
+  		CAMERYGUID=#{cameryguid,jdbcType=VARCHAR},
+  		RAMVOL=#{ramvol,jdbcType=INTEGER},
+ 		RAMTYPE=#{ramtype,jdbcType=VARCHAR},
+ 		ROMVOL=#{romvol,jdbcType=INTEGER},
+ 		OPRATION=#{opration,jdbcType=VARCHAR},
+  		COLOR=#{color,jdbcType=VARCHAR},
+  		BATTERY=#{battery,jdbcType=VARCHAR},
+  		BATTERYTYPE=#{batterytype,jdbcType=VARCHAR},
+  		FINGERPRINT=#{fingerprint,jdbcType=VARCHAR},
+  		SIM=#{sim,jdbcType=VARCHAR},
+  		GYRO=#{isgyro,jdbcType=CHAR},
+  		INTERFACE=#{interfacetype,jdbcType=VARCHAR},
+  		WIFITYPE=#{wifitype,jdbcType=VARCHAR},
+  		BLUETEETH=#{blueteeth,jdbcType=VARCHAR},
+  		ISCOMPASE=#{iscompase,jdbcType=CHAR},
+  		ISHALLSENSER=#{ishallsenser,jdbcType=CHAR},
+  		ISLIGHTSENSER=#{islightsenser,jdbcType=CHAR},
+  		ISGYROSCOPE= #{isgyroscope,jdbcType=CHAR},
+  		ISINFRARED=#{isinfrared,jdbcType=CHAR},
+  		ISGPS=#{isgps,jdbcType=CHAR},
+  		ISAGPS=#{isagps,jdbcType=CHAR},
+  		ISGNONASS=#{isgnonass,jdbcType=CHAR},
+  		ISBEIDOU=#{isbeidou,jdbcType=CHAR},
+ 		PUBTIME=#{pubtime,jdbcType=DATE},
+ 		ISRECOMMEND=#{isrecommend,jdbcType=CHAR}
+ 		where NUMBER=#{number,jdbcType=INTEGER}
+  </update>
+  <delete id="delete" parameterType="java.lang.Integer">
+  delete from  jianshouji.tab_jianshouji_telphone where  NUMBER=#{number,jdbcType=INTEGER}
+  </delete>
 </mapper>

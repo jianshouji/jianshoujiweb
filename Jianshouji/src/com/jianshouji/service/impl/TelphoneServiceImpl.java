@@ -21,7 +21,20 @@ public class TelphoneServiceImpl implements ITelphoneService {
 	}
 	@Override
 	public List<Telphone> selectTelphoneByBrand(String brandguid) {
-		return telphoneMapper.selectTelphoneByBrand(brandguid);
+		List<Telphone> list=telphoneMapper.selectTelphoneByBrand(brandguid);
+		return list;
+	}
+	@Override
+	public int update(Telphone record) {
+		return telphoneMapper.update(record);
+	}
+	@Override
+	public Telphone selectTelphoneByNumber(Integer number) {
+		return telphoneMapper.selectTelphoneByNumber(number);
+	}
+	@Override
+	public int delete(Integer number) {
+		return telphoneMapper.delete(number);
 	}
 
 }

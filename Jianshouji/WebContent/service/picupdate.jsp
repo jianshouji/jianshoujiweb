@@ -6,7 +6,7 @@
 <html>
  <head >
  	<jsp:include page="/service/common/header.jsp"></jsp:include>
-	<title>图片添加页面</title>
+	<title>图片修改页面</title>
  </head>
  <body >
     	<form id="picmsg" action="${ctx }/admin/service/phoneInsert" method="post">
