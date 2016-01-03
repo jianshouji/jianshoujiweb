@@ -16,7 +16,7 @@
   				<th style="width:60%">值</th>
   			</thead>
   			<tr>
-  				<td align="right">手机GUID</td>
+  				<td align="right">手机型号</td>
   				<td>
   					<input type="text" style="width:200px;" name="telphone.guid" value="${telphone.brandguid }" />
   					<input type="text" style="width:200px;" name="telphone.number" value="${telphone.number }" hidden="true">
@@ -33,6 +33,12 @@
   				<td align="right">价格</td>
   				<td>
   					<input type="text" style="width:200px;" name="telphone.price" >
+  				</td>
+  			</tr>
+  			  <tr>
+  				<td align="right">发布时间</td>
+  				<td>
+  					<input type="text"  class="easyui-datebox" style="width:200px;" name="telphone.pubtime" >
   				</td>
   			</tr>
   			<tr>

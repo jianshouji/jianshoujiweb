@@ -11,5 +11,6 @@
 <body>
 <%@include file="/jianshouji/common/commonbanner.jsp"%>
 CPU展示
+<%@include file="/jianshouji/common/footer.jsp"%>
 </body>
 </html>

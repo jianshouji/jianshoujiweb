@@ -26,7 +26,7 @@
   			<tr>
   				<td align="right">测评地址</td>
   				<td>
-  					<input type="text" style="width:200px;" name="ceping.testaddress" value="${ceping.testaddress }">
+  					<textarea name="ceping.testaddress"  style="width:200px;">${ceping.testaddress}</textarea>
   				</td>
   			</tr>
   			<tr>

@@ -34,6 +34,12 @@
   					<input type="text" style="width:200px;" name="telphone.price" value="${telphone.price }">
   				</td>
   			</tr>
+  			 <tr>
+  				<td align="right">发布时间</td>
+  				<td>
+  					<input type="text"  class="easyui-datebox" style="width:200px;" name="telphone.pubtime"  value="${telphone.pubtime }">
+  				</td>
+  			</tr>
   			<tr>
   				<td align="right">处理器</td>
   				<td>
