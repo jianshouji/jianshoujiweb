@@ -17,4 +17,8 @@
 		<select id="selectAllBrand" resultMap="BaseResultMap">
 		select GUID,BRANDNAME from tab_jianshouji_brand 
 	</select>
+	<!-- 获取品牌下拉框 -->
+	<select id="brandCombobox" resultMap="BaseResultMap">
+	select GUID,BRANDNAME from tab_jianshouji_brand
+	</select>
 </mapper>

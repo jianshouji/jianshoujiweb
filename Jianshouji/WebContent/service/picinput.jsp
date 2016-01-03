@@ -9,11 +9,11 @@
 	<title>图片添加页面</title>
  </head>
  <body >
-    	<form id="picmsg" action="${ctx }/admin/service/phoneInsert" method="post">
+    	<form id="picmsg" action="${ctx }/admin/service/picInsert" method="post">
   		<table>
   			<thead>
-  				<th align="right">属性</th>
-  				<th>值</th>
+  				<th align="right" style="width:40%">属性</th>
+  				<th style="width:60%">值</th>
   			</thead>
   			<tr>
   				<td align="right">图片名称</td>
@@ -26,13 +26,13 @@
   			<tr>
   				<td align="right">图片地址</td>
   				<td>
-  					<input type="text" style="width:200px;" name="pic.picaddress" value="${pic.picaddress" }">
+  					<textarea name="pic.picaddress" style="width:200px;">${pic.picaddress}</textarea>
   				</td>
   			</tr>
   			<tr>
   				<td align="right">图片标题</td>
   				<td>
-  					<input type="text"  class="easyui-datebox" style="width:200px;" name="pic.pictitle"  value="${pic.pictitle }">
+  					<input type="text"  style="width:200px;" name="pic.pictitle"  value="${pic.pictitle }">
   				</td>
   			</tr>
   		</table>

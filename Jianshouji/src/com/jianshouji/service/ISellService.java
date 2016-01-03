@@ -1,11 +1,10 @@
-package com.jianshouji.mapper;
-
+package com.jianshouji.service;
 
 import java.util.List;
 
 import com.jianshouji.model.Sell;
 
-public interface SellMapper extends AbstractEntityMapper<Sell> {
+public interface ISellService {
 	//查询首页显示
 	List<Sell> selectListByTelphoneguid(String telphoneguid);
 	
@@ -20,5 +19,4 @@ public interface SellMapper extends AbstractEntityMapper<Sell> {
 	
 	//删除
 	int delete(String telphoneguid);
-
 }

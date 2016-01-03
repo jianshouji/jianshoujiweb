@@ -9,11 +9,11 @@
 	<title>测评信息添加页面</title>
  </head>
  <body >
-    	<form id="testmsg" action="${ctx }/admin/service/phoneInsert" method="post">
+    	<form id="testmsg" action="${ctx }/admin/service/cepingEdit" method="post">
   		<table>
   			<thead>
-  				<th align="right">属性</th>
-  				<th>值</th>
+  				<th align="right" style="width:40%">属性</th>
+  				<th style="width:60%">值</th>
   			</thead>
   			<tr>
   				<td align="right">测评标题</td>
@@ -26,7 +26,7 @@
   			<tr>
   				<td align="right">测评地址</td>
   				<td>
-  					<input type="text" style="width:200px;" name="ceping.testaddress" value="${ceping.testaddress" }">
+  					<input type="text" style="width:200px;" name="ceping.testaddress" value="${ceping.testaddress }">
   				</td>
   			</tr>
   			<tr>
@@ -38,7 +38,10 @@
   			<tr>
   				<td align="right">是否为精</td>
   				<td>
-  					<input type="text" style="width:200px;" name="ceping.testflag"  value="${ceping.testflag }"> 
+  					<select class="easyui-combobox" name="ceping.testflag"  value="${ceping.testflag }"  style="width:200px;">   
+    				<option value="1">是</option>   
+    				<option value="0">否</option>   
+					</select> 
   				</td>
   			</tr>
   		</table>

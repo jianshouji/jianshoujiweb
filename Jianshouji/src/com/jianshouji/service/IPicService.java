@@ -1,13 +1,10 @@
-package com.jianshouji.mapper;
+package com.jianshouji.service;
 
 import java.util.List;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
-
 import com.jianshouji.model.Pic;
 
-public interface PicMapper extends AbstractEntityMapper<Pic> {
+public interface IPicService {
 	List<Pic> selectPicByRecommond();
 	
 	//管理页首页展示

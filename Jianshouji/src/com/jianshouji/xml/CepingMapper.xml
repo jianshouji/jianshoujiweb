@@ -2,34 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jianshouji.mapper.CepingMapper" >
   <resultMap id="BaseResultMap" type="com.jianshouji.model.Ceping" >
-    <id column="TELPHONEGUID" property="telphoneguid" jdbcType="VARCHAR" />
-    <result column="GUID" property="guid" jdbcType="VARCHAR" />
-    <result column="TESTADDRESS" property="testaddress" jdbcType="INTEGER" />
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="TELPHONEGUID" property="telphoneguid" jdbcType="VARCHAR" />
+    <result column="TESTADDRESS" property="testaddress" jdbcType="VARCHAR" />
     <result column="TITLE" property="title" jdbcType="VARCHAR" />
     <result column="TESTTIME" property="testtime" jdbcType="DATE" />
     <result column="TESTFLAG" property="testflag" jdbcType="CHAR" />
   </resultMap>
   <select id="selectListByTelphoneGuid" parameterType="java.lang.String"  resultMap="BaseResultMap">
- 	select * from tab_jianshouji_ceping where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
+ 	select GUID,TITLE,TESTADDRESS,date_format(TESTTIME,'%Y-%m-%d') TESTTIMESTR,TESTFLAG
+ 	 from tab_jianshouji_ceping where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
   </select>
    <select id="selectListByGuid" parameterType="java.lang.String"  resultMap="BaseResultMap">
  	select * from tab_jianshouji_ceping where GUID=#{guid,jdbcType=VARCHAR}
   </select>
   <insert id="insert" parameterType="com.jianshouji.model.Ceping">
-  insert into tab_jianshouji_ceping(TELPHONEGUID,GUID,TESTADDRESS,TESTTIME,TITLE,TESTFLAG)
-  values(TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR},
-  			GUID=#{guid,jdbcType=VARCHAR},
-  			TESTADDRESS=#{testaddress,jdbcType=VARCHAR},
-  			TESTTIME=#{testtime,jdbcType=VARCHAR},
-  			TITLE=#{title,jdbcType=VARCHAR},
-  			TESTFLAG=#{testflag,jdbcType=VARCHAR}
+  insert into tab_jianshouji_ceping(GUID,TELPHONEGUID,TESTADDRESS,TESTTIME,TITLE,TESTFLAG)
+  values(#{guid,jdbcType=VARCHAR},
+  			#{telphoneguid,jdbcType=VARCHAR},
+  			#{testaddress,jdbcType=VARCHAR},
+  			#{testtime,jdbcType=DATE},
+  			#{title,jdbcType=VARCHAR},
+  			#{testflag,jdbcType=CHAR}
   )
   </insert>
   <update id="update" parameterType="com.jianshouji.model.Ceping">
   update tab_jianshouji_ceping
   set 		TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR},
   			TESTADDRESS=#{testaddress,jdbcType=VARCHAR},
-  			TESTTIME=#{testtime,jdbcType=VARCHAR},
+  			TESTTIME=#{testtime,jdbcType=DATE},
   			TITLE=#{title,jdbcType=VARCHAR},
   			TESTFLAG=#{testflag,jdbcType=VARCHAR}
   where GUID=#{guid,jdbcType=VARCHAR}

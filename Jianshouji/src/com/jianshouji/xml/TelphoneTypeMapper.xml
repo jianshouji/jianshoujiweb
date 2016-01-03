@@ -11,4 +11,21 @@
 <select id="selectAllBrand"  resultMap="BaseResultMap">
 	select BRANDNAME,TELPHONEGUID from tab_jianshouji_brand as b,tab_jianshouji_telphonetype as t where b.guid=t.pguid
 </select>
+<insert id="insert" parameterType="com.jianshouji.model.TelphoneType">
+insert into tab_jianshouji_telphonetype(TELPHONEGUID,PGUID)
+values(#{telphoneguid,jdbcType=VARCHAR},
+			#{pguid,jdbcType=VARCHAR})
+</insert>
+<select id="selectTelphoneTypeByTelphoneguid" parameterType="java.lang.String" resultMap="BaseResultMap">
+	select * from tab_jianshouji_telphonetype where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
+</select>
+<update id="update" parameterType="com.jianshouji.model.TelphoneType">
+update tab_jianshouji_telphonetype
+set TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR},
+	PGUID=#{pguid,jdbcType=VARCHAR}
+where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
+</update>
+<delete id="delete" parameterType="java.lang.String" >
+delete from tab_jianshouji_telphonetype where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
+</delete>
 </mapper>

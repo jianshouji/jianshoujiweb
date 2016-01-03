@@ -7,4 +7,25 @@
     <result column="JDADDRESS" property="jdaddress" jdbcType="VARCHAR" />
     <result column="TMALLADDRESS" property="tmalladdress" jdbcType="VARCHAR" />
   </resultMap>
+  <select id="selectListByTelphoneguid" resultMap="BaseResultMap"  parameterType="java.lang.String" >
+   select * from tab_jianshouji_sell where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectSellByGuid" resultMap="BaseResultMap"  parameterType="java.lang.String" >
+  select * from tab_jianshouji_sell where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert"  parameterType="com.jianshouji.model.Sell">
+  insert into tab_jianshouji_sell(TELPHONEGUID,INDUSTRYADDRESS,JDADDRESS,TMALLADDRESS)
+  values(#{telphoneguid,jdbcType=VARCHAR},#{industryaddress,jdbcType=VARCHAR},
+  			#{jdaddress,jdbcType=VARCHAR},#{tmalladdress,jdbcType=VARCHAR})
+  </insert>
+  <delete id="delete" parameterType="java.lang.String">
+  delete from tab_jianshouji_sell where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
+  </delete>
+  <update id="update" parameterType="com.jianshouji.model.Sell">
+  update tab_jianshouji_sell
+  set INDUSTRYADDRESS=#{industryaddress,jdbcType=VARCHAR},
+  		JDADDRESS=#{jdaddress,jdbcType=VARCHAR},
+  		TMALLADDRESS=#{tmalladdress,jdbcType=VARCHAR}
+  	where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
+  </update>
 </mapper>

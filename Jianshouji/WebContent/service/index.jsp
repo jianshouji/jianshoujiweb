@@ -14,6 +14,17 @@
 //		    url:'${ctx }/service/tree_data2.json'  ,
 			url:'${ctx }/admin/service/brandTree',
 			singleSelect:true,
+			fit:true,
+			toolbar: [{
+    			iconCls: 'icon-add',
+    			handler: function(){addbrand();}
+    		},'-',/* {
+    			iconCls: 'icon-edit',
+    			handler: function(){editbrand();}
+    		},'-', */{
+    			iconCls: 'icon-remove',
+    			handler: function(){removebrand();}
+    		}],
     	    columns:[[  {field:'brandname',title:'品牌',width:60,align:'left'},
 		    	        {field:'telphoneguid',title:'手机型号',width:130,align:'left'}
 		    	    ]] ,
@@ -66,10 +77,7 @@
 		    	        {field:'isbeidou',title:'是否北斗定位',width:100,align:'left'},
 		    	        {field:'pubtimestr',title:'发布时间',width:100,align:'left'},
 		    	        {field:'isrecommend',title:'是否为推荐',width:100,align:'left'}
-		    	    ]] ,
-		    	    onSelect:function(){
-
-		    	    }
+		    	    ]] 
 		    	});
     	    	$('#test').datagrid({
     	    		fit:true,
@@ -85,14 +93,13 @@
 		    			iconCls: 'icon-remove',
 		    			handler: function(){removetest();}
 		    		}],
-    	    		url:'${ctx }/admin/service/cepingList?brandguid='+row.telphoneguid,
+    	    		url:'${ctx }/admin/service/cepingList?telphoneguid='+row.telphoneguid,
     	    		columns:[[   
 								{field:'guid',title:'测评GUID',align:'left',hidden:true},
     			    	        {field:'title',title:'测评标题',width:100,align:'left'},    
     			    	        {field:'testaddress',title:'测评地址',width:315,align:'left'},    
-    			    	        {field:'testtime',title:'测评时间',width:146,align:'left'} ,
+    			    	        {field:'testtimestr',title:'测评时间',width:146,align:'left'} ,
     			    	        {field:'testflag',title:'是否为精',width:146,align:'left'} 
-    			    	        
     			    	    ]]
     	    	});
     	    	$('#pic').datagrid({
@@ -109,12 +116,12 @@
 		    			iconCls: 'icon-remove',
 		    			handler: function(){removepic();}
 		    		}],
-    	    		url:'${ctx }/admin/service/picList',
+    	    		url:'${ctx }/admin/service/picList?telphoneguid='+row.telphoneguid,
     	    		columns:[[    
-    			    	        {field:'itemid',title:'图片guid',width:100,align:'left',hidden:true},    
-    			    	        {field:'productid',title:'图片标题',width:150,align:'left'},    
-    			    	        {field:'listprice',title:'图片名称',width:170,align:'left'} ,
-    			    	        {field:'unitcost',title:'图片地址',width:220,align:'left'}
+    			    	        {field:'guid',title:'图片guid',width:100,align:'left',hidden:true},    
+    			    	        {field:'pictitle',title:'图片标题',width:150,align:'left'},    
+    			    	        {field:'picname',title:'图片名称',width:170,align:'left'} ,
+    			    	        {field:'picaddress',title:'图片地址',width:220,align:'left'}
     			    	    ]]
     	    	});
     	    	$('#sell').datagrid({
@@ -131,12 +138,12 @@
 		    			iconCls: 'icon-remove',
 		    			handler: function(){removesell();}
 		    		}],
-    	    		url:'${ctx }/admin/service/cepingList?telphoneguid='+row.telphoneguid,
+    	    		url:'${ctx }/admin/service/sellList?telphoneguid='+row.telphoneguid,
     	    		columns:[[    
-    			    	        {field:'itemid',title:'图片guid',width:100,align:'left',hidden:true},    
-    			    	        {field:'productid',title:'官网地址',width:300,align:'left'},    
-    			    	        {field:'listprice',title:'天猫地址',width:300,align:'left'} ,
-    			    	        {field:'unitcost',title:'京东地址',width:300,align:'left'}
+    			    	        {field:'guid',title:'guid',width:100,align:'left',hidden:true},    
+    			    	        {field:'industryaddress',title:'官网地址',width:300,align:'left'},    
+    			    	        {field:'tmalladdress',title:'天猫地址',width:300,align:'left'} ,
+    			    	        {field:'jdaddress',title:'京东地址',width:300,align:'left'}
     			    	    ]]
     	    	});
 		    }
@@ -156,7 +163,26 @@
 	});
 	return $win;
 }
- 
+function addbrand(){
+	var win=showWindow("手机型号添加", '${ctx }/admin/service/toTelphoneTypeAddPage', 400,400,true, null, null);
+}
+
+function editbrand(){
+	var row=$('#brandtree').datagrid('getSelected');
+	if(row){
+		var win=showWindow("手机型号编辑", '${ctx }/admin/service/totelphoneTypeEditPage?telphoneguid='+row.telphoneguid, 400,400,true, null, null);
+	}
+}
+
+function removebrand(){
+	var row=$('#brandtree').datagrid('getSelected');
+	$.ajax({
+		url:'${ctx }/admin/service/telphoneTypeRemove?telphoneguid='+row.telphoneguid,
+		success: function(msg){
+			$('#brandtree').datagrid('reload');
+		   }
+	})
+}
 function addtelphone(){
 var row=$('#brandtree').datagrid('getSelected');
 if(row){
@@ -184,13 +210,13 @@ function removetelphone(){
 function addtest(){
 	var row=$('#brandtree').datagrid('getSelected');
 	if(row){
-		var win=showWindow("测评添加", '${ctx }/admin/service/toCepingAddPage?brandguid='+row.telphoneguid, 400,500,true, null, null);
+		var win=showWindow("测评添加", '${ctx }/admin/service/toCepingAddPage?brandguid='+row.telphoneguid, 400,400,true, null, null);
 	}
 }
 function edittest(){
 	var row=$('#test').datagrid('getSelected');
 	if(row){
-		var win=showWindow("测评编辑", '${ctx }/admin/service/toCepingEditPage?guid='+row.guid, 400,500,true, null, null);
+		var win=showWindow("测评编辑", '${ctx }/admin/service/toCepingEditPage?guid='+row.guid, 400,400,true, null, null);
 	}
 }
 function removetest(){
@@ -208,14 +234,14 @@ function removetest(){
 function addpic(){
 	var row=$('#brandtree').datagrid('getSelected');
 	if(row){
-		var win=showWindow("测评添加", '${ctx }/admin/service/toPicAddPage?brandguid='+row.telphoneguid, 400,500,true, null, null);
+		var win=showWindow("测评添加", '${ctx }/admin/service/toPicAddPage?telphoneguid='+row.telphoneguid, 400,250,true, null, null);
 	}
 }
 
 function editpic(){
 	var row=$('#pic').datagrid('getSelected');
 	if(row){
-		var win=showWindow("测评编辑", '${ctx }/admin/service/toPicEditPage?guid='+row.guid, 400,500,true, null, null);
+		var win=showWindow("测评编辑", '${ctx }/admin/service/toPicEditPage?guid='+row.guid, 400,250,true, null, null);
 	}
 }
 
@@ -232,17 +258,23 @@ function removepic(){
 }
 
 function addsell(){
-	
+	var row=$('#brandtree').datagrid('getSelected');
+	if(row){
+		var win=showWindow("测评添加", '${ctx }/admin/service/toSellAddPage?telphoneguid='+row.telphoneguid, 400,200,true, null, null);
+	}
 }
 
 function editsell(){
-	
+	var row=$('#sell').datagrid('getSelected');
+	if(row){
+		var win=showWindow("销售信息编辑", '${ctx }/admin/service/toSellEditPage?telphoneguid='+row.telphoneguid, 400,200,true, null, null);
+	}
 }
 
 function removesell(){
 	var row=$('#sell').datagrid('getSelected');
 	$.ajax({
-		url:'${ctx }/admin/service/cepingRemove?guid='+row.guid,
+		url:'${ctx }/admin/service/sellRemove?telphoneguid='+row.telphoneguid,
 		success: function(msg){
 			$('#sell').datagrid('reload');
 		   }
@@ -293,7 +325,7 @@ function showWindow(title, href, width, height, modal, minimizable, maximizable)
     		<div data-options="region:'east'" style="width:39%;height:200px;float:left">
     			<table id="pic"></table>
     		</div>
-    		<div data-options="region:'south'" style="width:100%;float:left">
+    		<div data-options="region:'south'" style="width:100%;height:200px;float:left">
     			<table id="sell"></table>
     		</div>
     	</div> 

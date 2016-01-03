@@ -18,13 +18,17 @@ import com.jianshouji.model.Screen;
 import com.jianshouji.model.Sell;
 import com.jianshouji.model.Telphone;
 import com.jianshouji.model.TelphoneType;
+import com.jianshouji.service.IBrandService;
 import com.jianshouji.service.ICameraService;
 import com.jianshouji.service.ICepingService;
 import com.jianshouji.service.ICpuService;
+import com.jianshouji.service.IPicService;
 import com.jianshouji.service.IScreenService;
+import com.jianshouji.service.ISellService;
 import com.jianshouji.service.ITelphoneService;
 import com.jianshouji.service.ITelphoneTypeService;
 import com.jianshouji.util.JSONUtil;
+import com.jianshouji.util.StringUtil;
 
 @Scope("requet")
 @Controller("serviceAction")
@@ -34,10 +38,12 @@ public class ServiceAction extends AbstractAction {
 	private Brand brand;
 	private Telphone telphone =new Telphone();
 	private Ceping ceping=new Ceping();
-	private Pic pic;
-	private Sell sell;
+	private Pic pic=new Pic();
+	private Sell sell=new Sell();
+	private TelphoneType telphoneType;
 	private String brandguid;
 	private Integer number;
+	private String telphoneguid;
 	@Autowired
 	private ITelphoneTypeService telphoneTypeService;
 	@Autowired
@@ -50,6 +56,12 @@ public class ServiceAction extends AbstractAction {
 	private ICpuService cpuService;
 	@Autowired
 	private ICepingService cepingService;
+	@Autowired
+	private IPicService picService;
+	@Autowired
+	private ISellService sellService;
+	@Autowired
+	private IBrandService brandService;
 	//进入管理主界面
 	@Action(value="toManagePage",results={@Result(name=SUCCESS,location="/service/index.jsp")})
 	public String toManagePage(){
@@ -80,18 +92,22 @@ public class ServiceAction extends AbstractAction {
 	//手机测评列表
 	@Action(value="cepingList",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String cepingList(){
-		List<Ceping> list=cepingService.selectListByTelphoneGuid(brandguid);
+		List<Ceping> list=cepingService.selectListByTelphoneGuid(telphoneguid);
 		result=JSONUtil.ToJson(list);
 		return SUCCESS;
 	}
 	//手机图片列表
 	@Action(value="picList",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String picList(){
+		List<Pic> list=picService.selectListByTelphoneguid(telphoneguid);
+		result=JSONUtil.ToJson(list);
 		return SUCCESS;
 	}
 	//手机销售列表
 	@Action(value="sellList",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String sellList(){
+		List<Sell> list=sellService.selectListByTelphoneguid(telphoneguid);
+		result=JSONUtil.ToJson(list);
 		return SUCCESS;
 	}
 	//进入添加手机信息页面
@@ -131,6 +147,8 @@ public class ServiceAction extends AbstractAction {
 	//进入添加测评信息页面
 	@Action(value="toCepingAddPage",results={@Result(name=SUCCESS,location="/service/testinput.jsp")})
 	public String toCepingAddPage(){
+		ceping.setTelphoneguid(brandguid);
+		ceping.setGuid(StringUtil.getGuidByTime());
 		return SUCCESS;
 	}
 	//手机测评信息添加
@@ -141,7 +159,7 @@ public class ServiceAction extends AbstractAction {
 		return SUCCESS;
 	}
 	//进入修改测评信息页面
-	@Action(value="toCepingEditPage",results={@Result(name=SUCCESS,location="/service/testinput.jsp")})
+	@Action(value="toCepingEditPage",results={@Result(name=SUCCESS,location="/service/testupdate.jsp")})
 	public String toCepingEditPage(){
 		ceping=cepingService.selectListByGuid(guid);
 		return SUCCESS;
@@ -163,51 +181,101 @@ public class ServiceAction extends AbstractAction {
 	//进入添加图片信息页面
 	@Action(value="toPicAddPage",results={@Result(name=SUCCESS,location="/service/picinput.jsp")})
 	public String toPicAddPage(){
+		pic.setTelphoneguid(telphoneguid);
+		pic.setGuid(StringUtil.getGuidByTime());
 		return SUCCESS;
 	}
 	//手机图片信息添加
 	@Action(value="picInsert",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String picInsert(){
+		linenum=picService.insert(pic);
+		result=linenum>0?"1":"0";
 		return SUCCESS;
 	}
 	//进入修改图片信息页面
-	@Action(value="toPicEditPage",results={@Result(name=SUCCESS,location="/service/picinput.jsp")})
+	@Action(value="toPicEditPage",results={@Result(name=SUCCESS,location="/service/picupdate.jsp")})
 	public String toPicEditPage(){
+		pic=picService.selectPicByguid(guid);
 		return SUCCESS;
 	}
 	//手机图片信息编辑修改
 	@Action(value="picEdit",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String picEdit(){
+		linenum=picService.update(pic);
+		result=linenum>0?"1":"0";
 		return SUCCESS;
 	}
 	//手机图片条目删除
 	@Action(value="picRemove",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String picRemove(){
+		linenum=picService.delete(guid);
+		result=linenum>0?"1":"0";
 		return SUCCESS;
 	}
 	//进入添加销售信息页面
-	@Action(value="toSellAddPage",results={@Result(name=SUCCESS,location="/service/picinput.jsp")})
+	@Action(value="toSellAddPage",results={@Result(name=SUCCESS,location="/service/sellinput.jsp")})
 	public String toSellAddPage(){
+		sell.setTelphoneguid(telphoneguid);
 		return SUCCESS;
 	}
 	//销售信息添加
 	@Action(value="sellInsert",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String sellInsert(){
+		linenum=sellService.insert(sell);
+		result=linenum>0?"1":"0";
 		return SUCCESS;
 	}
 	//进入修改销售信息页面
-	@Action(value="toSellEditPage",results={@Result(name=SUCCESS,location="/service/picinput.jsp")})
+	@Action(value="toSellEditPage",results={@Result(name=SUCCESS,location="/service/sellupdate.jsp")})
 	public String toSellEditPage(){
+		sell=sellService.selectSellByGuid(telphoneguid);
 		return SUCCESS;
 	}
 	//销售修改
 	@Action(value="sellEdit",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String sellEdit(){
+		linenum=sellService.update(sell);
+		result=linenum>0?"1":"0";
 		return SUCCESS;
 	}
 	//销售条目删除
 	@Action(value="sellRemove",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String sellRemove(){
+		linenum=sellService.delete(telphoneguid);
+		result=linenum>0?"1":"0";
+		return SUCCESS;
+	}
+	
+	//进入手机型号添加页面
+	@Action(value="toTelphoneTypeAddPage",results={@Result(name=SUCCESS,location="/service/telphonetypeinput.jsp")})
+	public String toTelphoneTypeAddPage(){
+		return SUCCESS;
+	}
+	//手机型号添加
+	@Action(value="telphoneTypeInsert",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
+	public String telphoneTypeInsert(){
+		linenum=telphoneTypeService.insert(telphoneType);
+		result=linenum>0?"1":"0";
+		return SUCCESS;
+	}
+	//进入手机型号修改页面
+	@Action(value="totelphoneTypeEditPage",results={@Result(name=SUCCESS,location="/service/telphonetypeupdate.jsp")})
+	public String totelphoneTypeEditPage(){
+		telphoneType=telphoneTypeService.selectTelphoneTypeByTelphoneguid(telphoneguid);
+		return SUCCESS;
+	}
+	//手机型号修改
+	@Action(value="telphoneTypeEdit",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
+	public String telphoneTypeEdit(){
+		linenum=telphoneTypeService.update(telphoneType);
+		result=linenum>0?"1":"0";
+		return SUCCESS;
+	}
+	//手机型号删除
+	@Action(value="telphoneTypeRemove",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
+	public String telphoneTypeRemove(){
+		linenum=telphoneTypeService.delete(telphoneguid);
+		result=linenum>0?"1":"0";
 		return SUCCESS;
 	}
 	//手机图片条目删除
@@ -228,6 +296,13 @@ public class ServiceAction extends AbstractAction {
 	@Action(value="getCpucombobox",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
 	public String getCpucombobox(){
 		List<Cpu> list=cpuService.getCpucombobox();
+		result=JSONUtil.ToJson(list);
+		return SUCCESS;
+	}
+	//品牌下拉框
+	@Action(value="getBrandcombobox",results={@Result(name=SUCCESS,location="/jsonresult.jsp")})
+	public String getBrandcombobox(){
+		List<Brand> list=brandService.brandCombobox();
 		result=JSONUtil.ToJson(list);
 		return SUCCESS;
 	}
@@ -272,6 +347,18 @@ public class ServiceAction extends AbstractAction {
 	}
 	public void setNumber(Integer number) {
 		this.number = number;
+	}
+	public String getTelphoneguid() {
+		return telphoneguid;
+	}
+	public void setTelphoneguid(String telphoneguid) {
+		this.telphoneguid = telphoneguid;
+	}
+	public TelphoneType getTelphoneType() {
+		return telphoneType;
+	}
+	public void setTelphoneType(TelphoneType telphoneType) {
+		this.telphoneType = telphoneType;
 	}
 
 }

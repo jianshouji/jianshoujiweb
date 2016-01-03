@@ -37,4 +37,20 @@ public class TelphoneTypeServiceImpl implements ITelphoneTypeService {
 	public List<TelphoneType> listbrand() {
 		return telphoneTypeMapper.selectAllBrand();
 	}
+	@Override
+	public int insert(TelphoneType record) {
+		return telphoneTypeMapper.insert(record);
+	}
+	@Override
+	public int update(TelphoneType record) {
+		return telphoneTypeMapper.update(record);
+	}
+	@Override
+	public int delete(String telphoneguid) {
+		return telphoneTypeMapper.delete(telphoneguid);
+	}
+	@Override
+	public TelphoneType selectTelphoneTypeByTelphoneguid(String telphoneguid) {
+		return telphoneTypeMapper.selectTelphoneTypeByTelphoneguid(telphoneguid);
+	}
 }

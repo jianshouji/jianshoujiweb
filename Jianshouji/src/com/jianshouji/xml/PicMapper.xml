@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jianshouji.mapper.PicMapper" >
   <resultMap id="BaseResultMap" type="com.jianshouji.model.Pic" >
-    <id column="TELPHONEGUID" property="telphoneguid" jdbcType="VARCHAR" />
-    <result column="GUID" property="guid" jdbcType="VARCHAR" />
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="TELPHONEGUID" property="telphoneguid" jdbcType="VARCHAR" />
     <result column="PICNAME" property="picname" jdbcType="VARCHAR" />
     <result column="PICADDRESS" property="picaddress" jdbcType="VARCHAR" />
     <result column="PICTITLE" property="pictitle" jdbcType="VARCHAR" />
@@ -12,4 +12,28 @@
   select p.* from jianshouji.tab_jianshouji_telphone t,jianshouji.tab_jianshouji_pic p
   where t.guid=p.telphoneguid and t.ISRECOMMEND='1'
   </select>
+  <select id="selectListByTelphoneguid" resultMap="BaseResultMap"  parameterType="java.lang.String" >
+  select * from tab_jianshouji_pic where TELPHONEGUID=#{telphoneguid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectPicByguid" resultMap="BaseResultMap"  parameterType="java.lang.String" >
+  select * from tab_jianshouji_pic where GUID=#{guid,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.jianshouji.model.Pic">
+  insert into tab_jianshouji_pic(GUID,TELPHONEGUID,PICNAME,PICADDRESS,PICTITLE)
+  values(#{guid,jdbcType=VARCHAR},
+  			#{telphoneguid,jdbcType=VARCHAR},
+  			#{picname,jdbcType=VARCHAR},
+  			#{picaddress,jdbcType=VARCHAR},
+  			#{pictitle,jdbcType=VARCHAR})
+  </insert>
+  <update id="update" parameterType="com.jianshouji.model.Pic">
+  	update tab_jianshouji_pic 
+  	set PICNAME=#{picname,jdbcType=VARCHAR},
+  		PICADDRESS=#{picaddress,jdbcType=VARCHAR},
+  		PICTITLE=#{pictitle,jdbcType=VARCHAR}
+  	where GUID=#{guid,jdbcType=VARCHAR}
+  </update>
+  <delete id="delete" parameterType="java.lang.String">
+  delete from tab_jianshouji_pic where GUID=#{guid,jdbcType=VARCHAR}
+  </delete>
 </mapper>

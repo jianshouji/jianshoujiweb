@@ -12,8 +12,8 @@
   	<form id="phonemsg" action="${ctx }/admin/service/phoneInsert" method="post">
   		<table>
   			<thead>
-  				<th align="right">属性</th>
-  				<th>值</th>
+  				<th align="right" style="width:40%">属性</th>
+  				<th style="width:60%">值</th>
   			</thead>
   			<tr>
   				<td align="right">手机GUID</td>

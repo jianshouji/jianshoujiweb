@@ -9,6 +9,10 @@ public class Ceping {
 	private String title;//测评标题
 	private Date testtime;//测评时间
 	private char testflag;//是否为精
+	
+	//附加
+	private String testtimestr;
+	
 	public String getTelphoneguid() {
 		return telphoneguid;
 	}
@@ -44,6 +48,12 @@ public class Ceping {
 	}
 	public void setTestflag(char testflag) {
 		this.testflag = testflag;
+	}
+	public String getTesttimestr() {
+		return testtimestr;
+	}
+	public void setTesttimestr(String testtimestr) {
+		this.testtimestr = testtimestr;
 	}
 
 	

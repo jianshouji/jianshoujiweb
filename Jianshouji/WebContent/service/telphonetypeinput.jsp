@@ -6,33 +6,25 @@
 <html>
  <head >
  	<jsp:include page="/service/common/header.jsp"></jsp:include>
-	<title>图片修改页面</title>
+	<title>手机型号添加页面</title>
  </head>
  <body >
-    	<form id="picmsg" action="${ctx }/admin/service/picEdit" method="post">
+    	<form id="telphoneTypemsg" action="${ctx }/admin/service/telphoneTypeInsert" method="post">
   		<table>
   			<thead>
   				<th align="right" style="width:40%">属性</th>
   				<th style="width:60%">值</th>
   			</thead>
   			<tr>
-  				<td align="right">图片名称</td>
+  				<td align="right">手机型号</td>
   				<td>
-  					<input type="text" style="width:200px;" name="pic.picname" value="${pic.picname }">
-  					<input type="text" style="width:200px;" name="pic.guid" value="${pic.guid }" hidden="true" />
-  					<input type="text" style="width:200px;" name="pic.telphoneguid" value="${pic.telphoneguid }" hidden="true">
+  					<input type="text" style="width:200px;" name="telphoneType.telphoneguid"  value="${telphoneType.telphoneguid }">
   				</td>
   			</tr>
   			<tr>
-  				<td align="right">图片地址</td>
+  				<td align="right">手机品牌</td>
   				<td>
-  					<textarea name="pic.picaddress" style="width:200px;">${pic.picaddress}</textarea>
-  				</td>
-  			</tr>
-  			<tr>
-  				<td align="right">图片标题</td>
-  				<td>
-  					<input type="text"  style="width:200px;" name="pic.pictitle"  value="${pic.pictitle }">
+  					<input class="easyui-combobox" style="width:200px;" name="telphoneType.pguid" data-options="editable:false,valueField:'guid',textField:'brandname',url:'${ctx }/admin/service/getBrandcombobox'" > 
   				</td>
   			</tr>
   		</table>

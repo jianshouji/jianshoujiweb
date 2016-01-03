@@ -9,29 +9,29 @@
 	<title>销售信息修改页面</title>
  </head>
  <body >
-    	<form id="sellmsg" action="${ctx }/admin/service/phoneInsert" method="post">
+    	<form id="sellmsg" action="${ctx }/admin/service/sellEdit" method="post">
   		<table>
   			<thead>
-  				<th align="right">属性</th>
-  				<th>值</th>
+  				<th align="right" style="width:40%">属性</th>
+  				<th style="width:60%">值</th>
   			</thead>
   			<tr>
   				<td align="right">官网销售地址</td>
   				<td>
-  					<input type="text" style="width:200px;" name="sell.industryaddress" >
-  					<input type="text" style="width:200px;" name="sell.guid" value="${sell.guid }" hidden="true" />
+  					<input type="text" style="width:200px;" name="sell.industryaddress"  value="${sell.industryaddress }">
+  					<input type="text" style="width:200px;" name="sell.telphoneguid" value="${sell.telphoneguid }" hidden="true" />
   				</td>
   			</tr>
   			<tr>
   				<td align="right">京东商城地址</td>
   				<td>
-  					<input type="text" style="width:200px;" name="sell.jdaddress" value="${sell.jdaddress" }">
+  					<input type="text" style="width:200px;" name="sell.jdaddress" value="${sell.jdaddress }">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">天猫商城销售地址</td>
   				<td>
-  					<input type="text"  style="width:200px;" name="sell.tmalladdress" >
+  					<input type="text"  style="width:200px;" name="sell.tmalladdress" value="${sell.tmalladdress }">
   				</td>
   			</tr>
   		</table>

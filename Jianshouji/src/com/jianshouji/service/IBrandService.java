@@ -16,5 +16,8 @@ public interface IBrandService {
 	 * @return
 	 */
 	public List<Brand> getStarBrand();
+	
+	//获取品牌下拉框
+	List<Brand> brandCombobox();
 
 }
