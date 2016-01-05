@@ -4,106 +4,226 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
- <head>
- 	<jsp:include page="/jianshouji/common/header.jsp"></jsp:include>
-	<title>荐手机</title>
- </head>
- <style>
- .content{
-	 background-color:#666;
-	 height:auto;
- }
- #recommend-scroll-pic{
-	 height:508px;
-	 border-color:#0F9;
- }
- .item{
- }
- #recommend-left{
-	 width:100%;
-	 float:left;
-	 position:relative;
- }
- #tuijian{
-  margin:0px;
-  width:10%;
-  border:1px solid #333;
-  float:left;
-  position:relative;
- }
- .row{
-	 width:90%;
- 	 float:left;
- 	 position:relative;
- }
- .footer{
- }
- </style>
- <body>
-<%@include file="/jianshouji/common/commonbanner.jsp"%>
-   <div class="content">
-    <div id="recommend-scroll-pic" class="slider">
-		<div id="myCarousel" class="carousel slide">
- 					<!-- Carousel items -->
- 			<div class="carousel-inner">
-  				<c:forEach items="${listpic}" var="pic">
-					<c:if test="${pic.guid.equals('1')==true }">
-						<div class="active item"><a href="http://www.baidu.com"><img src="${ctx }/${pic.picaddress}" class="img-responsive" alt="${pic.guid}"></a></div>
-					</c:if>
-					<c:if test="${pic.guid.equals('1')==false }">
- 					<div class="item"><img src="${ctx }/${pic.picaddress}" class="img-responsive" alt="${pic.guid}"></div>
- 					</c:if>
- 				</c:forEach> 
- 				</div>
- 					<!-- Carousel nav -->
- 			<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
- 			<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
-		</div>
-      </div>
-      <div id="recommend-telphone">
-        	<div id="recommend-left">
-            	<div id="tuijian">
-      					推荐榜
-   				</div>
-            	<div class="row">
-<%--             		<c:forEach items="${listpic}" var="pic">
-            			<div class="col-sm-2 col-md-3">
-            					<a href="#" class="thumbnail">
-         						<img src="${ctx }/${pic.picaddress }" alt="通用的占位符缩略图">
-     					 		</a>
-     					</div>
-            		</c:forEach> --%>
-            		<c:forEach items="${listpic}" var="pic">
-            		     <div class="col-sm-6 col-md-4 col-lg-3 ">
-          					<div class="thumbnail">
-            				<a href="${ctx }/admin/telphone/toPhonePage?guid=${pic.telphoneguid}" title="jQuery API 中文文档/手册" target="_blank" onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'jQueryAPI中文手册'])"><img class="lazy" src="${ctx }/${pic.picaddress }" width="400" height="150" data-src="http://static.bootcss.com/www/assets/img/jqueryapi.png" alt="jQuery API 中文文档/手册"></a>
-            					<div class="caption">
-              						<h3> 
-                					<a href="###" title="jQuery API 中文文档/手册" target="_blank" onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'jQueryAPI中文手册'])">${pic.pictitle } <br><small>中文手册</small></a>
-              						</h3>
-              						<p>
-              						${pic.pictitle }
-              						</p>
-            					</div>
-          					</div>
-        				</div>
-        			</c:forEach>
+<head>
+<title>主页</title>
+<jsp:include page="/jianshouji/common/header.jsp"></jsp:include>
+</head>
+<body>
+	<!----- start-header---->
+	<div class="banner" id="home">
+		<jsp:include page="/jianshouji/common/commonbanner.jsp"></jsp:include>
+			<div class="slider">
+				 <div id="cbp-fwslider" class="cbp-fwslider">
+					<ul>
+						<li><a href="#"><img src="${ctx }/jianshouji/images/slide3.png" alt="img01"/></a></li>
+						<li><a href="#"><img src="${ctx }/jianshouji/images/slide2.png" alt="img02"/></a></li>
+						<li><a href="#"><img src="${ctx }/jianshouji/images/slide3.png" alt="img03"/></a></li>
+						<li><a href="#"><img src="${ctx }/jianshouji/images/slide2.png" alt="img04"/></a></li>
+						<li><a href="#"><img src="${ctx }/jianshouji/images/slide4.png" alt="img05"/></a></li>
+					</ul>
 				</div>
-            
-            </div>
+			</div>
+		</div>
+		<link rel="stylesheet" type="text/css" href="${ctx }/jianshouji/css/component.css" />
+		<script src="${ctx }/jianshouji/js/modernizr.custom.js"></script>
+		<script src="${ctx }/jianshouji/js/jquery.cbpFWSlider.min.js"></script>
+		<script>
+			$( function() {
 
-        </div>
-    </div>
-<%@include file="/jianshouji/common/footer.jsp"%>
-    <script>
-    $(function(){
-		
-		}
-		)
-    
-    </script>
- </body>
+				$( '#cbp-fwslider' ).cbpFWSlider();
 
+			} );
+		</script>
+		 
+<!--start-slide-bottom-->
+		<!--tainers-section-->
+				  <div class="tainers-section">
+	 				 <div class="container">
+						<!--sreen-gallery-cursual-->
+						<div class="col-md-3 tainer wow bounceInLeft" data-wow-delay="0.4s">
+						      <h3>最新发布</h3>
+							  <p>关注最新发布手机</p>
+						</div>
+						<div class="col-md-9 sreen-gallery-cursual wow bounceInRight" data-wow-delay="0.4s">
+							<!-- start content_slider -->
+						       <div id="owl-demo" class="owl-carousel">
+					                <div class="item">
+					                	<div class="item-grid">
+					                		<div class="item-pic">
+					                			<a href="http://www.baidu.com"><img src="${ctx }/jianshouji/images/t1.jpg" /></a>
+					                		</div>
+					                	</div>
+					                </div>
+					                <div class="item">
+					                	<div class="item-grid">
+					                		<div class="item-pic">
+					                			<img src="${ctx }/jianshouji/images/t2.jpg" />
+                                               </div>
+					                		</div>
+					                </div>
+					                 <div class="item">
+					                	<div class="item-grid">
+					                		<div class="item-pic">
+					                			<img src="${ctx }/jianshouji/images/t3.jpg" />
+                                               </div>
+					                		</div>
+					                	</div>
+					               <div class="item">
+					                	<div class="item-grid">
+					                		<div class="item-pic">
+					                			<img src="${ctx }/jianshouji/images/t1.jpg" />
+                                               </div>
+					                		</div>
+					                	</div>
+					                 <div class="item">
+					                	<div class="item-grid">
+					                		<div class="item-pic">
+					                			<img src="${ctx }/jianshouji/images/t2.jpg" />
+                                               </div>
+					                		</div>
+					                	</div>
+					                 <div class="item">
+					                	<div class="item-grid">
+					                		<div class="item-pic">
+					                			<img src="${ctx }/jianshouji/images/t3.jpg" />
+                                               </div>
+					                		</div>
+					                	</div>
+					               <div class="item">
+					                	<div class="item-grid">
+					                		<div class="item-pic">
+					                			<img src="${ctx }/jianshouji/images/t1.jpg" />
+                                               </div>
+					                		</div>
+					                	</div>
+					                 <div class="item">
+					                	<div class="item-grid">
+					                		<div class="item-pic">
+					                			<img src="${ctx }/jianshouji/images/t2.jpg" />
+                                               </div>
+					                		</div>
+					                	</div>
+					                	 <div class="item">
+					                	<div class="item-grid">
+					                		<div class="item-pic">
+					                			<img src="${ctx }/jianshouji/images/t3.jpg" />
+                                               </div>
+					                		</div>
+					                	</div>
+					                </div>
+				              </div>
+							  <div class="clearfix"></div>
+						<!--//sreen-gallery-cursual-->
+					</div>
+				</div>
+				<!-- requried-jsfiles-for owl -->
+							<link href="${ctx }/jianshouji/css/owl.carousel.css" rel="stylesheet">
+							    <script src="${ctx }/jianshouji/js/owl.carousel.js"></script>
+							        <script>
+							    $(document).ready(function() {
+							      $("#owl-demo").owlCarousel({
+							         items :3,
+							        lazyLoad : true,
+							        autoPlay : true,
+							        navigation :true,
+							        navigationText :  false,
+							        pagination : false,
+							      });
+							    });
+							    </script>
+							 
+			 <!-- //requried-jsfiles-for owl -->
+  <!-- //End-team-->
+<!--classes-->
+		<div class="clases-section">
+			<div class="container">
+			             <h3>性价比之选</h3>
+			     <div class="class-grids">
+					 <div class="col-md-6 class-grid wow zoomInLeft animated">
+					     <img src="${ctx }/jianshouji/images/c1.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>手机名称 </h4>
+							<p>手机价格&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp发布日期</p>
+						</div>
+					</div>
+					 <div class="col-md-6 class-grid wow zoomInRight animated">
+					     <img src="${ctx }/jianshouji/images/c2.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>Cardio Practice</h4>
+							<p>with John Da Vinci</p>
+						</div>
+					</div>
+					 <div class="col-md-6 class-grid wow zoomInLeft animated">
+					     <img src="${ctx }/jianshouji/images/c3.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>Athletic Training</h4>
+							<p>with John Da Vinci</p>
+						</div>
+					</div>
+					<div class="col-md-6 class-grid wow zoomInLeft animated">
+					     <img src="${ctx }/jianshouji/images/c3.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>Athletic Training</h4>
+							<p>with John Da Vinci</p>
+						</div>
+					</div>
+					<div class="col-md-6 class-grid wow zoomInLeft animated">
+					     <img src="${ctx }/jianshouji/images/c3.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>Athletic Training</h4>
+							<p>with John Da Vinci</p>
+						</div>
+					</div>
+					 <div class="col-md-6 class-grid wow zoomInRight animated">
+					     <img src="${ctx }/jianshouji/images/c1.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>Body Building </h4>
+							<p>with John Da Vinci</p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				 </div>
+			</div>
+		</div>
+		<!--start-new-->
+		<div class="new-section">
+		   <div class="container">
+		         <h3>CPU旗舰</h3>
+				 <div class="new">
+				   <div class="col-md-6 new-text wow rollIn animated" data-wow-delay="0.4s">
+					   <h5>THU 14 May, 2015</h5>
+					   <a href="single.html"><h4>How to lose fat fast</h4></a>
+					   <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				   </div>
+					<div class="col-md-6 welcome-img">
+					 <a href="single.html" class="mask"><img src="${ctx }/jianshouji/images/n1.jpg" alt="image" class="img-responsive zoom-img"></a>
+					</div>
+				   <div class="clearfix"> </div>
+			   </div>
+			    <div class="new">
+				 <div class="col-md-6 new-text two wow rollIn animated" data-wow-delay="0.4s">
+					   <h5>THU 14 May, 2015</h5>
+					  <a href="single.html"><h4>Build your six pack</h4></a>
+										   <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				   </div>
+					<div class="col-md-6 new-img two">
+					 <a href="single.html" class="mask"><img src="${ctx }/jianshouji/images/n3.jpg" alt="image" class="img-responsive zoom-img"></a>
+					</div>
+				   <div class="clearfix"> </div>
+			   </div> 
+			    <div class="new">
+				   <div class="col-md-6 new-text wow rollIn animated" data-wow-delay="0.4s">
+					   <h5>THU 14 May, 2015</h5>
+					   <a href="single.html"><h4>How to lose fat fast</h4></a>
+					   <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				   </div>
+					<div class="col-md-6 welcome-img">
+					 <a href="single.html" class="mask"><img src="${ctx }/jianshouji/images/n2.jpg" alt="image" class="img-responsive zoom-img"></a>
+					</div>
+				   <div class="clearfix"> </div>
+			   </div>
+		</div>
+	</div>
+			<jsp:include page="/jianshouji/common/footer.jsp"></jsp:include>
+</body>
 </html>
-
-

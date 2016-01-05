@@ -9,92 +9,42 @@
 <title>荐手机-品牌</title>
 </head>
 <body>
-	<%@include file="/jianshouji/common/commonbanner.jsp"%>
-
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span12">
-				<h3 class="text-left">明星品牌</h3>
-				<div class="row-fluid">
-				<c:forEach items="${list}" var="starItem">
-					<div class="active item">
-						<a href="http://www.baidu.com">
-						<img src="${ctx }/${pic.picaddress}" class="img-responsive" alt="${pic.guid}">
-						</a>
+	<!----- start-header---->
+	<div class="banner two" id="home">
+		<jsp:include page="/jianshouji/common/commonbanner.jsp"></jsp:include>
+	</div>
+	<!--classes-->
+		<div class="clases-section">
+			<div class="container">
+			    <div class="class-grids">
+					 <div class="col-md-6 class-grid wow zoomInLeft animated">
+					     <img src="${ctx }/jianshouji/images/c1.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>Body Building </h4>
+						</div>
 					</div>
-					<div class="col-xs-3 span3">
-						<a href="http://www.baidu.com">
-							<img alt="${starItem.brandname }" src="img/a.jpg" />
-						</a>
+					 <div class="col-md-6 class-grid wow zoomInRight animated">
+					     <img src="${ctx }/jianshouji/images/c2.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>Cardio Practice</h4>
+						</div>
 					</div>
-				</c:forEach>
-				
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
+					 <div class="col-md-6 class-grid wow zoomInLeft animated">
+					     <img src="${ctx }/jianshouji/images/c3.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>Athletic Training</h4>
+						</div>
 					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
+					 <div class="col-md-6 class-grid wow zoomInRight animated">
+					     <img src="${ctx }/jianshouji/images/c1.jpg" class="img-responsive" alt="" />
+						 <div class="bottom-color">
+							<h4>Body Building </h4>
+						</div>
 					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-				</div>
-				<div class="row-fluid">
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-				</div>
+					<div class="clearfix"></div>
+				 </div>
 			</div>
 		</div>
-				<div class="row-fluid">
-			<div class="span12">
-				<h3 class="text-left">其他品牌</h3>
-				<div class="row-fluid">
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-				</div>
-				<div class="row-fluid">
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-					<div class="col-xs-3 span3">
-						<img alt="140x140" src="img/a.jpg" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="" class="content">
-
-	</div>
+			<jsp:include page="/jianshouji/common/footer.jsp"></jsp:include>
 </body>
 </html>

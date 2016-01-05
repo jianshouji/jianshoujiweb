@@ -2,58 +2,44 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-
-
-    <footer class="footer ">
-      <div class="container">
-        <div class="row footer-top">
-          <div class="col-sm-6 col-lg-6">
-            <h4>
-              <img src="http://static.bootcss.com/www/assets/img/logo.png">
-            </h4>
-            <p>本网站为荐手机测试代码<a href="http://www.bootcss.com/">荐手机</a>友情发布</p>
-          </div>
-          <div class="col-sm-6  col-lg-5 col-lg-offset-1">
-            <div class="row about">
-              <div class="col-xs-3">
-                <h4>关于</h4>
-                <ul class="list-unstyled">
-                  <li><a href="/about/">关于我们</a></li>
-                  <li><a href="/ad/">广告合作</a></li>
-                  <li><a href="/links/">友情链接</a></li>
-                  <li><a href="/hr/">招聘</a></li>
-                </ul>
-              </div>
-              <div class="col-xs-3">
-                <h4>联系方式</h4>
-                <ul class="list-unstyled">
-                  <li><a href="http://weibo.com/bootcss" title="Bootstrap中文网官方微博" target="_blank">新浪微博</a></li>
-                  <li><a href="mailto:admin@bootcss.com">电子邮件</a></li>
-                </ul>
-              </div>
-              <div class="col-xs-3">
-                <h4>旗下网站</h4>
-                <ul class="list-unstyled">
-                  <li><a href="http://www.golaravel.com/" target="_blank">Laravel中文网</a></li>
-                  <li><a href="http://www.ghostchina.com/" target="_blank">Ghost中国</a></li>
-                </ul>
-              </div>
-              <div class="col-xs-3">
-                <h4>赞助商</h4>
-                <ul class="list-unstyled">
-                  <li><a href="http://www.ucloud.cn/" target="_blank">UCloud</a></li>
-                  <li><a href="https://www.upyun.com" target="_blank">又拍云</a></li>
-                </ul>
-              </div>
-            </div>
-    
-          </div>
-        </div>
-        <hr/>
-        <div class="row footer-bottom">
-          <ul class="list-inline text-center">
-            <li><a href="http://www.miibeian.gov.cn/" target="_blank">荐手机测试页面</a></li><li>京公网安备11010802014853</li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+	<!----footer--->
+			<div class="footer">
+			<div class="container">
+				<div class="f-grids">
+				<div class="col-md-4 footer-grid wow fadeInUpBig animated animated" data-wow-delay="0.4s">
+				<h3>友情<span class="opening">链接</span></h3>
+				  <a href="#"><h5>The do’s and don’ts of running for fitness</h5></a>
+				  <a href="#"><h5>The do’s and don’ts of running for fitness</h5></a>
+				  <p>Sed rhoncus nulla turpis, vitae rutrum velit iaculis et. Curabitur vestibulum, erat non im</p>
+				</div>
+				<div class="col-md-4 footer-grid wow fadeInUpBig animated animated" data-wow-delay="0.3s">
+				    <div class="opening_hours">
+						 <ul class="times">
+							<h3>Opening<span class="opening">Hours</span></h3>
+							<li><i class="calender"> </i><span class="week">Wednesday</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Thrusday</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Friday</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Saturday</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Sunday</span><div class="hours">Closed</div>  <div class="clearfix"></div></li>
+						 </ul>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	<!--start-smoth-scrolling-->
+			<script type="text/javascript">
+								jQuery(document).ready(function($) {
+									$(".scroll").click(function(event){		
+										event.preventDefault();
+										$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+									});
+								});
+								</script>
+							<!--start-smoth-scrolling-->
+						<script type="text/javascript">
+									$(document).ready(function() {
+										$().UItoTop({ easingType: 'easeOutQuart' });
+									});
+								</script>
+<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
