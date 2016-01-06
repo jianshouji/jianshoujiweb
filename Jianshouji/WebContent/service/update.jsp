@@ -126,19 +126,21 @@
   			<tr>
   				<td align="right">电池类型</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.batterytype"  style="width:200px;"  id="batterytype">   
+<%--   					<select class="easyui-combobox" name="telphone.batterytype"  style="width:200px;"  id="batterytype">   
     				<option value="1">不可拆卸</option>   
     				<option value="0">可拆卸</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.batterytype"  value="${telphone.batterytype}">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">是否支持指纹识别</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.fingerprint" id="fingerprint" style="width:200px;">   
+<%--   					<select class="easyui-combobox" name="telphone.fingerprint" id="fingerprint" style="width:200px;">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.fingerprint"  value="${telphone.fingerprint}">
   				</td>
   			</tr>
   			<tr>
@@ -150,10 +152,11 @@
   			<tr>
   				<td align="right">是否有陀螺仪</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.isgyro"  id="isgyro" style="width:200px;">   
+<%--   					<select class="easyui-combobox" name="telphone.isgyro"  id="isgyro" style="width:200px;">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select> --%> 
+					<input type="text"  style="width:200px;" name="telphone.isgyro"  value="${telphone.isgyro}">
   				</td>
   			</tr>
   			<tr>
@@ -177,91 +180,117 @@
   			<tr>
   				<td align="right">是否有电子罗盘</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.iscompase"  style="width:200px;" id="iscompase">   
+<%--   					<select class="easyui-combobox" name="telphone.iscompase"  style="width:200px;" id="iscompase">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.iscompase"  value="${telphone.iscompase}">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">是否有霍尔感应</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.ishallsenser"  style="width:200px;" id="ishallsenser">   
+<%--   					<select class="easyui-combobox" name="telphone.ishallsenser"  style="width:200px;" id="ishallsenser">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.ishallsenser"  value="${telphone.ishallsenser}">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">是否光线感应</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.islightsenser"  style="width:200px;" id="islightsenser">   
+<%--   					<select class="easyui-combobox" name="telphone.islightsenser"  style="width:200px;" id="islightsenser">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.islightsenser"  value="${telphone.islightsenser}">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">是否陀螺仪</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.isgyroscope"  style="width:200px;" id="isgyroscope">   
-    				<option value="1">是</option>   
-    				<option value="0">否</option>   
-					</select> 
+					<input type="text"  style="width:200px;" name="telphone.isgyroscope"  value="${telphone.isgyroscope}">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">是否红外</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.isinfrared"  style="width:200px;" id="isinfrared">   
+<%--   					<select class="easyui-combobox" name="telphone.isinfrared"  style="width:200px;" id="isinfrared">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.isinfrared"  value="${telphone.isinfrared}">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">是否GPS</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.isgps"  style="width:200px;" id="isgps">   
+<%--   					<select class="easyui-combobox" name="telphone.isgps"  style="width:200px;" id="isgps">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.isgps"  value="${telphone.isgps}">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">是否AGPS</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.isagps"  style="width:200px;" id="isagps">   
+<%--   					<select class="easyui-combobox" name="telphone.isagps"  style="width:200px;" id="isagps">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.isagps"  value="${telphone.isagps}">
   				</td>
   			</tr>
   			  <tr>
   				<td align="right">是否支持北斗</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.isbeidou"  value="${telphone.isbeidou}" style="width:200px;" id="isbeidou">   
+<%--   					<select class="easyui-combobox" name="telphone.isbeidou"  value="${telphone.isbeidou}" style="width:200px;" id="isbeidou">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.isbeidou"  value="${telphone.isbeidou}">
   				</td>
   			</tr>
   			<tr>
   				<td align="right">是否GNONASS</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.isgnonass"  style="width:200px;" id="isgnonass">   
+<%--   					<select class="easyui-combobox" name="telphone.isgnonass"  style="width:200px;" id="isgnonass">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.isgnonass"  value="${telphone.isgnonass}">
   				</td>
   			</tr>
   			 <tr>
-  				<td align="right">是否为推荐</td>
+  				<td align="right">是否为品牌推荐</td>
   				<td>
-  					<select class="easyui-combobox" name="telphone.isrecommend"  style="width:200px;" id="isrecommend">   
+<%--   					<select class="easyui-combobox" name="telphone.isrecommend"  style="width:200px;" id="isrecommend">   
     				<option value="1">是</option>   
     				<option value="0">否</option>   
-					</select> 
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.isrecommend"  value="${telphone.isrecommend}">
+  				</td>
+  			</tr>
+  			  			<tr>
+  				<td align="right">是否为首页推荐</td>
+  				<td>
+<%--   					<select class="easyui-combobox" name="telphone.isrecommend"  style="width:200px;">   
+    				<option value="1">是</option>   
+    				<option value="0">否</option>   
+					</select>  --%>
+					<input type="text"  style="width:200px;" name="telphone.isshowindex"  value="${telphone.isshowindex}">
+  				</td>
+  			</tr>
+  			  			 <tr>
+  				<td align="right">是否为性价比推荐</td>
+  				<td>
+<%--   					<select class="easyui-combobox" name="telphone.islowprice"  style="width:200px;">   
+    				<option value="1">是</option>   
+    				<option value="0">否</option>   
+					</select> --%>
+					<input type="text"  style="width:200px;" name="telphone.islowprice"  value="${telphone.islowprice}"> 
   				</td>
   			</tr>
   		</table>

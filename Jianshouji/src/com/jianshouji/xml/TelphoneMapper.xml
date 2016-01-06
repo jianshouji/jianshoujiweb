@@ -35,6 +35,8 @@
     <result column="ISBEIDOU" property="isbeidou" jdbcType="CHAR" />
     <result column="PUBTIME" property="pubtime" jdbcType="DATE" />
     <result column="ISRECOMMEND" property="isrecommend" jdbcType="CHAR" />
+    <result column="ISSHOWINDEX" property="isshowindex" jdbcType="CHAR" />
+    <result column="ISLOWPRICE" property="islowprice" jdbcType="CHAR" />
   </resultMap>
   <select id="selectByIsrecommend" resultMap="BaseResultMap" >
   select * from jianshouji.tab_jianshouji_telphone t
@@ -54,7 +56,7 @@
   ISCOMPASE,ISHALLSENSER,ISLIGHTSENSER,
   ISGYROSCOPE,ISINFRARED,ISGPS,
   ISAGPS,ISGNONASS,ISBEIDOU,
-  PUBTIME,ISRECOMMEND)
+  PUBTIME,ISRECOMMEND,ISSHOWINDEX,ISLOWPRICE)
   values(#{guid,jdbcType=VARCHAR},#{telphone_name,jdbcType=VARCHAR},#{price,jdbcType=INTEGER},
   #{brandguid,jdbcType=VARCHAR},#{cpuguid,jdbcType=VARCHAR},#{screenguid,jdbcType=VARCHAR},
   #{beforepixel,jdbcType=VARCHAR},#{cameryguid,jdbcType=VARCHAR},#{ramvol,jdbcType=INTEGER},
@@ -65,7 +67,7 @@
   #{iscompase,jdbcType=CHAR},#{ishallsenser,jdbcType=CHAR},#{islightsenser,jdbcType=CHAR},
   #{isgyroscope,jdbcType=CHAR},#{isinfrared,jdbcType=CHAR},#{isgps,jdbcType=CHAR},
   #{isagps,jdbcType=CHAR},#{isgnonass,jdbcType=CHAR},#{isbeidou,jdbcType=CHAR},
-  #{pubtime,jdbcType=DATE},#{isrecommend,jdbcType=CHAR})
+  #{pubtime,jdbcType=DATE},#{isrecommend,jdbcType=CHAR},#{isshowindex,jdbcType=CHAR},#{islowprice,jdbcType=CHAR})
   </insert>
     <select id="selectTelphoneByBrand" resultMap="BaseResultMap" >
   select t.NUMBER,t.GUID, t.TELPHONE_NAME,t.PRICE,c.CPU_NAME as cpuname,
@@ -74,7 +76,7 @@
   		 t.FINGERPRINT,t.SIM,t.GYRO,t.INTERFACE,t.WIFITYPE,t.BLUETEETH,
   		 t.ISCOMPASE,t.ISHALLSENSER,t.ISLIGHTSENSER,t.ISGYROSCOPE,
   		 t.ISINFRARED,t.ISGPS,t.ISAGPS,t.ISGNONASS,t.ISBEIDOU,
-  		 date_format(t.PUBTIME,'%Y-%m-%d') PUBTIMESTR,t.ISRECOMMEND
+  		 date_format(t.PUBTIME,'%Y-%m-%d') PUBTIMESTR,t.ISRECOMMEND,t.ISSHOWINDEX,t.ISLOWPRICE
   from jianshouji.tab_jianshouji_telphone t,tab_jianshouji_cpu c,tab_jianshouji_screen s,
   tab_jianshouji_camera a
   where c.guid=t.cpuguid and 

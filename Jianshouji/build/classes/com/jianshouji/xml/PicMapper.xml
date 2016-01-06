@@ -7,6 +7,9 @@
     <result column="PICNAME" property="picname" jdbcType="VARCHAR" />
     <result column="PICADDRESS" property="picaddress" jdbcType="VARCHAR" />
     <result column="PICTITLE" property="pictitle" jdbcType="VARCHAR" />
+    <result column="ISRECOMMEND" property="isrecommend" jdbcType="CHAR" />
+    <result column="ISSHOWINDEX" property="isshowindex" jdbcType="CHAR" />
+    <result column="ISLOWPRICE" property="islowprice" jdbcType="CHAR" />
   </resultMap>
   <select id="selectPicByRecommond" resultMap="BaseResultMap">
   select p.* from jianshouji.tab_jianshouji_telphone t,jianshouji.tab_jianshouji_pic p
@@ -19,18 +22,24 @@
   select * from tab_jianshouji_pic where GUID=#{guid,jdbcType=VARCHAR}
   </select>
   <insert id="insert" parameterType="com.jianshouji.model.Pic">
-  insert into tab_jianshouji_pic(GUID,TELPHONEGUID,PICNAME,PICADDRESS,PICTITLE)
+  insert into tab_jianshouji_pic(GUID,TELPHONEGUID,PICNAME,PICADDRESS,PICTITLE,ISRECOMMEND,ISSHOWINDEX,ISLOWPRICE)
   values(#{guid,jdbcType=VARCHAR},
   			#{telphoneguid,jdbcType=VARCHAR},
   			#{picname,jdbcType=VARCHAR},
   			#{picaddress,jdbcType=VARCHAR},
-  			#{pictitle,jdbcType=VARCHAR})
+  			#{pictitle,jdbcType=VARCHAR},
+  			#{isrecommend,jdbcType=VARCHAR},
+  			#{isshowindex,jdbcType=VARCHAR},
+  			#{islowprice,jdbcType=VARCHAR})
   </insert>
   <update id="update" parameterType="com.jianshouji.model.Pic">
   	update tab_jianshouji_pic 
   	set PICNAME=#{picname,jdbcType=VARCHAR},
   		PICADDRESS=#{picaddress,jdbcType=VARCHAR},
-  		PICTITLE=#{pictitle,jdbcType=VARCHAR}
+  		PICTITLE=#{pictitle,jdbcType=VARCHAR},
+  		ISRECOMMEND=#{isrecommend,jdbcType=VARCHAR},
+  		ISSHOWINDEX=#{isshowindex,jdbcType=VARCHAR},
+  		ISLOWPRICE=#{islowprice,jdbcType=VARCHAR}
   	where GUID=#{guid,jdbcType=VARCHAR}
   </update>
   <delete id="delete" parameterType="java.lang.String">

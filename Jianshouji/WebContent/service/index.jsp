@@ -76,7 +76,9 @@
 		    	        {field:'isgnonass',title:'是否GNONASS',width:100,align:'left'},
 		    	        {field:'isbeidou',title:'是否北斗定位',width:100,align:'left'},
 		    	        {field:'pubtimestr',title:'发布时间',width:100,align:'left'},
-		    	        {field:'isrecommend',title:'是否为推荐',width:100,align:'left'}
+		    	        {field:'isrecommend',title:'是否为品牌内推荐',width:100,align:'left'},
+		    	        {field:'isshowindex',title:'是否为首页推荐',width:100,align:'left'},
+		    	        {field:'islowprice',title:'是否为性价比推荐',width:100,align:'left'}
 		    	    ]] 
 		    	});
     	    	$('#test').datagrid({
@@ -121,7 +123,10 @@
     			    	        {field:'guid',title:'图片guid',width:100,align:'left',hidden:true},    
     			    	        {field:'pictitle',title:'图片标题',width:150,align:'left'},    
     			    	        {field:'picname',title:'图片名称',width:170,align:'left'} ,
-    			    	        {field:'picaddress',title:'图片地址',width:220,align:'left'}
+    			    	        {field:'picaddress',title:'图片地址',width:220,align:'left'},
+    			    	        {field:'isrecommend',title:'是否为品牌内推荐',width:100,align:'left'},
+    			    	        {field:'isshowindex',title:'是否为首页推荐',width:100,align:'left'},
+    			    	        {field:'islowprice',title:'是否为性价比推荐',width:100,align:'left'}
     			    	    ]]
     	    	});
     	    	$('#sell').datagrid({
@@ -234,14 +239,14 @@ function removetest(){
 function addpic(){
 	var row=$('#brandtree').datagrid('getSelected');
 	if(row){
-		var win=showWindow("测评添加", '${ctx }/admin/service/toPicAddPage?telphoneguid='+row.telphoneguid, 400,250,true, null, null);
+		var win=showWindow("测评添加", '${ctx }/admin/service/toPicAddPage?telphoneguid='+row.telphoneguid, 400,300,true, null, null);
 	}
 }
 
 function editpic(){
 	var row=$('#pic').datagrid('getSelected');
 	if(row){
-		var win=showWindow("测评编辑", '${ctx }/admin/service/toPicEditPage?guid='+row.guid, 400,250,true, null, null);
+		var win=showWindow("测评编辑", '${ctx }/admin/service/toPicEditPage?guid='+row.guid, 400,300,true, null, null);
 	}
 }
 

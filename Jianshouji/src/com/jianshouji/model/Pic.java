@@ -6,6 +6,9 @@ public class Pic {
 	private String picname;//图片名称
 	private String picaddress;//图片地址
 	private String pictitle;//图片标题
+	private char isrecommend;//是否为品牌内推荐
+	private char isshowindex;//是否在首页展示
+	private char islowprice;//是否为性价比推荐
 	public String getTelphoneguid() {
 		return telphoneguid;
 	}
@@ -35,6 +38,24 @@ public class Pic {
 	}
 	public void setPictitle(String pictitle) {
 		this.pictitle = pictitle;
+	}
+	public char getIsrecommend() {
+		return isrecommend;
+	}
+	public void setIsrecommend(char isrecommend) {
+		this.isrecommend = isrecommend;
+	}
+	public char getIsshowindex() {
+		return isshowindex;
+	}
+	public void setIsshowindex(char isshowindex) {
+		this.isshowindex = isshowindex;
+	}
+	public char getIslowprice() {
+		return islowprice;
+	}
+	public void setIslowprice(char islowprice) {
+		this.islowprice = islowprice;
 	}
 	
 }

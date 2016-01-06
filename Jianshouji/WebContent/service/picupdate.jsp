@@ -35,6 +35,24 @@
   					<input type="text"  style="width:200px;" name="pic.pictitle"  value="${pic.pictitle }">
   				</td>
   			</tr>
+  			  			<tr>
+  				<td align="right">是否为首页推荐</td>
+  				<td>
+  					<input type="text"  style="width:200px;" name="pic.isshowindex"  value="${pic.isshowindex }">
+  				</td>
+  			</tr>
+  			  <tr>
+  				<td align="right">是否为性价比推荐</td>
+  				<td>
+  					<input type="text"  style="width:200px;" name="pic.islowprice"  value="${pic.islowprice }">
+  				</td>
+  			</tr>
+  			 <tr>
+  				<td align="right">是否为品牌推荐</td>
+  				<td>
+  					<input type="text"  style="width:200px;" name="pic.isrecommend"  value="${pic.isrecommend }">
+  				</td>
+  			</tr>
   		</table>
   		<div>
   			<input type="submit" id="submit_btn"  onclick="submitbtn()" value="确定">

@@ -35,7 +35,9 @@ public class Telphone {
 	private char isgnonass;//是否支持格洛纳斯
 	private char isbeidou;//是否支持北斗
 	private Date pubtime; //手机发布时间
-	private char isrecommend;//是否为推荐
+	private char isrecommend;//是否为品牌内推荐
+	private char isshowindex;//是否在首页展示
+	private char islowprice;//是否为性价比推荐
 	
 	//附加
 	private String cpuname;
@@ -265,6 +267,18 @@ public class Telphone {
 	}
 	public void setNumber(Integer number) {
 		this.number = number;
+	}
+	public char getIsshowindex() {
+		return isshowindex;
+	}
+	public void setIsshowindex(char isshowindex) {
+		this.isshowindex = isshowindex;
+	}
+	public char getIslowprice() {
+		return islowprice;
+	}
+	public void setIslowprice(char islowprice) {
+		this.islowprice = islowprice;
 	}
 
 }
